@@ -1,7 +1,7 @@
 import React from "react";
 
 function AutomobileList(props) {
-    console.log("props!:", props)
+
     return (
         <table className="table">
             <thead>

@@ -3,7 +3,7 @@
 Team: 1
 
 * Shayne Buac - Sales microservice
-* Person 2 - Which microservice?
+* Jordan Bott - Service Microservice
 
 ## Design
 
