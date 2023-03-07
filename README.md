@@ -17,18 +17,20 @@ microservice, here.
 ##### Models:
 
 - [ ] `Sales person`
-  -
-  -
-  -
-  -
-  - bin (Foreign Key to BinVO)
-- [ ] Potential `customer`
-  -
+  - Name
+  - Employee Number
+- [ ] `Customer`
+  - Name
+  - Address
+  - Phone number
 - [ ] `Sale`s record
-  -
-- [ ] `AutomobileVO` - Same properties as Bin model + import_href
+  - Sale price
+  - Automobile (ForeignKey to AutomobileVO)
+  - Sales person (ForeignKey)
+  - Customer (ForeignKey)
+- [ ] `AutomobileVO`
   - import_href
-  -
+  - vin
 
 ##### RESTful API (Port 8080):
 
@@ -41,11 +43,17 @@ microservice, here.
 | DELETE |  |  |  |
 
 ##### Poller:
-- One poller to poll the Wardrobe API for `Automobile` resources every 60 seconds
+- One poller to poll the Inventory API for `Automobile` resources every 60 seconds
 
 ##### React:
+- ADD CORS HEADERS TO PROJECT SETTINGS
 - Components:
-
+  - List sales with details
+  - Sales person dropdown
+  - List a sales person's sales history
+  - Sales person form
+  - Customer form
+  - Sale record form
 
 - React Router
   - Used `BrowserRoutes`, `Routes`, and `Route` from  `react-router-dom` to create paths for
