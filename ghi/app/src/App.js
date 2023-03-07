@@ -24,8 +24,8 @@ import VehicleModelForm from './VehicleModelForm';
 
 
 
-
-
+import AddAutoForm from './AutomobileForm';
+import AutomobileList from './AutomobileList';
 
 
 function App(props) {
@@ -58,8 +58,8 @@ function App(props) {
               <Route path="new" element={<VehicleModelForm manufacturers={props.manufacturers} />} />
             </Route>
             <Route path="automobile">
-              <Route path="" />
-              <Route path="new" />
+              <Route path="" element={<AutomobileList automobiles={props.automobiles}/>}/>
+              <Route path="new" element={<AddAutoForm models={props.vehicleModels} />}/>
             </Route>
           </Route>
           <Route path="sales">
