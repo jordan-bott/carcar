@@ -16,19 +16,19 @@ microservice, here.
 
 ##### Models:
 
-- [ ] `Sales person`
+- [x] `Sales person`
   - Name
   - Employee Number
-- [ ] `Customer`
+- [x] `Customer`
   - Name
   - Address
   - Phone number
-- [ ] `Sale`s record
+- [x] `Sale`s record
   - Sale price
   - Automobile (ForeignKey to AutomobileVO)
   - Sales person (ForeignKey)
   - Customer (ForeignKey)
-- [ ] `AutomobileVO`
+- [x] `AutomobileVO`
   - import_href
   - vin
 
@@ -36,9 +36,9 @@ microservice, here.
 
 | Method | URL | What it does | View function | Notes |
 | ------ | ------ | ------ | ------ | ------ |
-|   GET  |        |        |        |        |
+| GET |  | | | |
 | GET |  | | |  |
-|    POST    |   |   |  |
+| POST |  |  |  |
 | GET |  | |  |
 | DELETE |  |  |  |
 
@@ -46,7 +46,7 @@ microservice, here.
 - One poller to poll the Inventory API for `Automobile` resources every 60 seconds
 
 ##### React:
-- ADD CORS HEADERS TO PROJECT SETTINGS
+- ADD CORS HEADERS TO PROJECT SETTINGS IF NEEDED
 - Components:
   - List sales with details
   - Sales person dropdown

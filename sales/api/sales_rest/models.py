@@ -9,24 +9,45 @@ class SalesPerson(models.Model):
     def get_api_url(self):
         return reverse("api_sales_person", kwargs={"id": self.id})
 
+    def __str__(self):
+        return self.name
+
 
 class Customer(models.Model):
     name = models.CharField(max_length=200)
-    address = models.CharField(max_length=200)
+    street = models.CharField(max_length=200)
+    apartment = models.CharField(max_length=100, null=True)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=2)
+    zip_code = models.PositiveIntegerField()
     phone_number = models.CharField(max_length=12)
+
+    @property
+    def address(self):
+        if self.apartment == None:
+            return f"{self.street}, {self.city}, {self.state} {self.zip_code}"
+        return (
+            f"{self.street} {self.apartment}, {self.city}, {self.state} {self.zip_code}"
+        )
 
     def get_api_url(self):
         return reverse("api_customer", kwargs={"id": self.id})
+
+    def __str__(self):
+        return self.name
 
 
 class AutomobileVO(models.Model):
     import_href = models.CharField(max_length=200, unique=True)
     vin = models.CharField(max_length=17, unique=True)
 
+    def __str__(self):
+        return self.vin
+
 
 class Sale(models.Model):
     price = models.PositiveIntegerField()
-    automobile = models.ForeignKey(
+    automobile = models.OneToOneField(
         AutomobileVO,
         related_name="sales",
         on_delete=models.CASCADE,
@@ -47,3 +68,6 @@ class Sale(models.Model):
 
     class Meta:
         ordering = ("sales_person", "customer", "price")
+
+    def __str__(self):
+        return f"{self.automobile} - {self.customer}"
