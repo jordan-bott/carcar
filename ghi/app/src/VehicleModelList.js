@@ -1,10 +1,6 @@
 import React from 'react'
 
 export default function VehicleModelList(props) {
-    if (props.vehicleModels === undefined) {
-        return null;
-    }
-
     return (
         <div className="mt-4">
             <h1>Vehicle Models</h1>
