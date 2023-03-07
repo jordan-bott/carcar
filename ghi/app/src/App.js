@@ -1,6 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
+import ManufacturerList from './ManufacturerList';
+import ManufacturerForm from './ManufacturerForm';
+import VehicleModelList from './VehicleModelList';
+import VehicleModelForm from './VehicleModelForm';
 
 
 
@@ -25,6 +29,19 @@ import Nav from './Nav';
 
 
 function App(props) {
+  if (
+    props.automobiles === undefined ||
+    props.manufacturers === undefined ||
+    props.vehicleModels === undefined // ||
+    // props.sales === undefined ||
+    // props.customers === undefined ||
+    // props.salesPersons === undefined ||
+    // props.technicians === undefined ||
+    // props.appointments === undefined
+  ) {
+    return null;
+  }
+
   return (
     <BrowserRouter>
       <Nav />
@@ -33,12 +50,12 @@ function App(props) {
           <Route path="/" element={<MainPage />} />
           <Route path="inventory">
             <Route path="manufacturers">
-              <Route path="" />
-              <Route path="new" />
+              <Route path="" element={<ManufacturerList manufacturers={props.manufacturers} />} />
+              <Route path="new" element={<ManufacturerForm />} />
             </Route>
             <Route path="models">
-              <Route path="" />
-              <Route path="new" />
+              <Route path="" element={<VehicleModelList vehicleModels={props.vehicleModels} />} />
+              <Route path="new" element={<VehicleModelForm manufacturers={props.manufacturers} />} />
             </Route>
             <Route path="automobile">
               <Route path="" />

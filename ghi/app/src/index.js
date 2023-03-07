@@ -13,13 +13,13 @@ root.render(
 
 // technician, appointment,
 
-//automobile, manufactuerer, vehicle model
+//automobile, manufacturer, vehicle model
 
 async function loadData() {
 
     const automobileResponse = await fetch('http://localhost:8100/api/automobiles/');
     const manufacturerResponse = await fetch('http://localhost:8100/api/manufacturers/');
-    const vehicleModelResponse = await fetch('http://localhost:8100/api/models/')
+    const vehicleModelResponse = await fetch('http://localhost:8100/api/models/');
 
     // const salesResponse = await fetch('')
     // const customerResponse = await fetch('')
@@ -53,9 +53,9 @@ async function loadData() {
             root.render(
                 <React.StrictMode>
                     <App
-                        automobiles={automobile.automobiles}
+                        automobiles={automobile.autos}
                         manufacturers={manufacturer.manufacturers}
-                        vehicleModels={vehicleModel.vehicleModels}
+                        vehicleModels={vehicleModel.models}
                     // sales={sales.sales}
                     // customers={customer.customers}
                     // salesPersons={salesPerson.salesPersons}
