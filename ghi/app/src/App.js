@@ -8,6 +8,7 @@ import VehicleModelForm from './VehicleModelForm';
 import SalesPersonForm from './Sales/SalesPersonForm';
 import CustomerForm from './Sales/CustomerForm';
 import SaleList from './Sales/SaleList';
+import SaleHistory from './Sales/SaleHistory';
 
 
 
@@ -36,9 +37,9 @@ function App(props) {
     props.automobiles === undefined ||
     props.manufacturers === undefined ||
     props.vehicleModels === undefined ||
-    props.sales === undefined // ||
+    props.sales === undefined ||
     // props.customers === undefined ||
-    // props.salesPersons === undefined ||
+    props.salesPeople === undefined // ||
     // props.technicians === undefined ||
     // props.appointments === undefined
   ) {
@@ -71,7 +72,7 @@ function App(props) {
             <Route path="customers/new" element={<CustomerForm />} />
             <Route path="salesperson">
               <Route path="new" element={<SalesPersonForm />} />
-              <Route path="history" />
+              <Route path="history" element={<SaleHistory sales={props.sales} salesPeople={props.salesPeople} />} />
             </Route>
           </Route>
           <Route path="service">
