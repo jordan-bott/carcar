@@ -8,17 +8,9 @@ class AutomobileVO(models.Model):
     def __str__(self):
         return self.vin
 
-
 class Technician(models.Model):
     name = models.CharField(max_length=100)
     employee_number = models.IntegerField()
-
-    def __str__(self):
-        return self.name
-
-    # def get_api_url(self):
-    #     return reverse("api_show_technician", kwargs={"employee_number": self.employee_number})
-
 
 
 class ServiceAppointment(models.Model):
@@ -29,7 +21,7 @@ class ServiceAppointment(models.Model):
     technician = models.ForeignKey(
         Technician,
         related_name="service_appointments",
-        on_delete=models.SET("TECHNICIAN NEEDED")
+        on_delete=models.PROTECT
     )
     service_reason = models.TextField()
 

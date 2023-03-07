@@ -10,7 +10,6 @@ class TechnicianEncoder(ModelEncoder):
     properties = [
         "name",
         "employee_number",
-        "id"
     ]
 
 class ServiceAppointmentEncoder(ModelEncoder):
@@ -33,23 +32,30 @@ class ServiceAppointmentEncoder(ModelEncoder):
         count = AutomobileVO.objects.filter(vin=o.vin).count()
         return {"vip_treatment": count > 0}
 
+def api_technicians(request):
+    services = ServiceAppointment.objects.all()
+    return JsonResponse(
+        services,
+        encoder=ServiceAppointmentEncoder,
+        safe=False,
+    )
 
-# @require_http_methods(["GET", "POST"])
-def api_list_technicians(request):
+@require_http_methods(["GET", "POST"])
+def api_add_tech(request):
     if request.method == "GET":
         technicians = Technician.objects.all()
         return JsonResponse(
-            {"technicians": technicians},
-            encoder=TechnicianEncoder,
+            technicians,
+            encoder = TechnicianEncoder,
+            safe=False,
         )
-    elif request.method == "POST":
+    else:
         content = json.loads(request.body)
-
         technician = Technician.objects.create(**content)
         return JsonResponse(
             technician,
             encoder=TechnicianEncoder,
-            safe=False,
+            safe=False
         )
 
 
