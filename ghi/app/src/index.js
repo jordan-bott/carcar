@@ -4,9 +4,9 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
 );
 
 // sales, customer, sales person
@@ -28,43 +28,45 @@ async function loadData() {
     // const technicianResponse = await fetch('')
     // const appointmentResponse = await fetch('')
 
-    try { if (
-        automobileResponse.ok &&
-        manufacturerResponse.ok &&
-        vehicleModelResponse.ok &&
-        // salesResponse.ok &&
-        // customerResponse.ok &&
-        // salesPersonResponse.ok &&
-        // technicianResponse.ok &&
-        // appointmentResponse.ok
-    ){
+    try {
+        if (
+            automobileResponse.ok &&
+            manufacturerResponse.ok &&
+            vehicleModelResponse.ok // &&
+            // salesResponse.ok &&
+            // customerResponse.ok &&
+            // salesPersonResponse.ok &&
+            // technicianResponse.ok &&
+            // appointmentResponse.ok
+        ) {
 
-        const automobile = await automobileResponse.json();
-        const manufacturer = await manufacturerResponse.json();
-        const vehicleModel = await vehicleModelResponse.json();
-        // const sales = await salesResponse.json();
-        // const customer = await customerResponse.json();
-        // const salesPerson = await salesPersonResponse.json();
-        // const technician = await technicianResponse.json();
-        // const appointment = await appointmentResponse.json();
+            const automobile = await automobileResponse.json();
+            const manufacturer = await manufacturerResponse.json();
+            const vehicleModel = await vehicleModelResponse.json();
+            // const sales = await salesResponse.json();
+            // const customer = await customerResponse.json();
+            // const salesPerson = await salesPersonResponse.json();
+            // const technician = await technicianResponse.json();
+            // const appointment = await appointmentResponse.json();
 
 
-        root.render(
-            <React.StrictMode>
-                <App
-                    automobiles={automobile.automobiles}
-                    manufacturers={manufacturer.manufacturers}
-                    vehicleModels={vehicleModel.vehicleModels}
+            root.render(
+                <React.StrictMode>
+                    <App
+                        automobiles={automobile.automobiles}
+                        manufacturers={manufacturer.manufacturers}
+                        vehicleModels={vehicleModel.vehicleModels}
                     // sales={sales.sales}
                     // customers={customer.customers}
                     // salesPersons={salesPerson.salesPersons}
                     // technicians={technician.technicians}
                     // appointments={appointment.appointments}
-                />
-            </React.StrictMode>
+                    />
+                </React.StrictMode>
             );
-    }} catch(e) {
+        }
+    } catch (e) {
         console.error(e);
     }
-
 }
+loadData();
