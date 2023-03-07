@@ -16,8 +16,8 @@ class Technician(models.Model):
     def __str__(self):
         return self.name
 
-    def get_api_url(self):
-        return reverse("api_show_technician", kwargs={"employee_number": self.employee_number})
+    # def get_api_url(self):
+    #     return reverse("api_show_technician", kwargs={"employee_number": self.employee_number})
 
 
 
@@ -33,9 +33,18 @@ class ServiceAppointment(models.Model):
     )
     service_reason = models.TextField()
 
-    @property
-    def status(self):
-        return "SCHEDULED"
+    status = models.CharField(max_length=100, default="SCHEDULED")
 
     def __str__(self):
         return f"{self.technician} - {self.appointment_date} {self.appointment_time}"
+
+    # def get_api_url(self):
+    #     return reverse("api_show_service_appointment", kwargs={"id": self.id})
+
+    def finish(self):
+        self.status = "FINISHED"
+        self.save()
+
+    def cancel(self):
+        self.status = "CANCELED"
+        self.save()
