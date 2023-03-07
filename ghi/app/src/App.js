@@ -7,6 +7,7 @@ import VehicleModelList from './VehicleModelList';
 import VehicleModelForm from './VehicleModelForm';
 import SalesPersonForm from './Sales/SalesPersonForm';
 import CustomerForm from './Sales/CustomerForm';
+import SaleList from './Sales/SaleList';
 
 
 
@@ -34,8 +35,8 @@ function App(props) {
   if (
     props.automobiles === undefined ||
     props.manufacturers === undefined ||
-    props.vehicleModels === undefined // ||
-    // props.sales === undefined ||
+    props.vehicleModels === undefined ||
+    props.sales === undefined // ||
     // props.customers === undefined ||
     // props.salesPersons === undefined ||
     // props.technicians === undefined ||
@@ -65,7 +66,7 @@ function App(props) {
             </Route>
           </Route>
           <Route path="sales">
-            <Route path="" />
+            <Route path="" element={<SaleList sales={props.sales} />} />
             <Route path="new" />
             <Route path="customers/new" element={<CustomerForm />} />
             <Route path="salesperson">

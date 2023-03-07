@@ -27,19 +27,7 @@ class AutomobileVOEncoder(ModelEncoder):
     ]
 
 
-class SaleListEncoder(ModelEncoder):
-    model = Sale
-    properties = ["price"]
-
-    def get_extra_data(self, o):
-        return {
-            "automobile": o.automobile.vin,
-            "sales_person": o.sales_person.name,
-            "customer": o.customer.name,
-        }
-
-
-class SaleDetailEncoder(ModelEncoder):
+class SaleEncoder(ModelEncoder):
     model = Sale
     properties = [
         "price",

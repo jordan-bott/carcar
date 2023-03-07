@@ -6,8 +6,7 @@ from .models import SalesPerson, Customer, Sale, AutomobileVO
 from .encoders import (
     SalesPersonEncoder,
     CustomerEncoder,
-    SaleListEncoder,
-    SaleDetailEncoder,
+    SaleEncoder,
 )
 
 
@@ -93,7 +92,7 @@ def api_sales(request):
         sales = Sale.objects.all()
         return JsonResponse(
             {"sales": sales},
-            encoder=SaleListEncoder,
+            encoder=SaleEncoder,
         )
     else:
         content = json.loads(request.body)
@@ -125,7 +124,7 @@ def api_sales(request):
         sale = Sale.objects.create(**content)
         return JsonResponse(
             sale,
-            encoder=SaleDetailEncoder,
+            encoder=SaleEncoder,
             safe=False,
         )
 
@@ -142,7 +141,7 @@ def api_sale(request, id):
     if request.method == "GET":
         return JsonResponse(
             sale,
-            encoder=SaleDetailEncoder,
+            encoder=SaleEncoder,
             safe=False,
         )
     else:

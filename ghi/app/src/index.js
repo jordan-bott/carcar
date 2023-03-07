@@ -20,20 +20,19 @@ async function loadData() {
     const automobileResponse = await fetch('http://localhost:8100/api/automobiles/');
     const manufacturerResponse = await fetch('http://localhost:8100/api/manufacturers/');
     const vehicleModelResponse = await fetch('http://localhost:8100/api/models/');
+    const salesResponse = await fetch('http://localhost:8090/api/sales/');
+    // const customerResponse = await fetch('');
+    // const salesPersonResponse = await fetch('');
 
-    // const salesResponse = await fetch('')
-    // const customerResponse = await fetch('')
-    // const salesPersonResponse = await fetch('')
-
-    // const technicianResponse = await fetch('')
-    // const appointmentResponse = await fetch('')
+    // const technicianResponse = await fetch('');
+    // const appointmentResponse = await fetch('');
 
     try {
         if (
             automobileResponse.ok &&
             manufacturerResponse.ok &&
-            vehicleModelResponse.ok // &&
-            // salesResponse.ok &&
+            vehicleModelResponse.ok &&
+            salesResponse.ok // &&
             // customerResponse.ok &&
             // salesPersonResponse.ok &&
             // technicianResponse.ok &&
@@ -43,7 +42,7 @@ async function loadData() {
             const automobile = await automobileResponse.json();
             const manufacturer = await manufacturerResponse.json();
             const vehicleModel = await vehicleModelResponse.json();
-            // const sales = await salesResponse.json();
+            const sales = await salesResponse.json();
             // const customer = await customerResponse.json();
             // const salesPerson = await salesPersonResponse.json();
             // const technician = await technicianResponse.json();
@@ -56,7 +55,7 @@ async function loadData() {
                         automobiles={automobile.autos}
                         manufacturers={manufacturer.manufacturers}
                         vehicleModels={vehicleModel.models}
-                    // sales={sales.sales}
+                        sales={sales.sales}
                     // customers={customer.customers}
                     // salesPersons={salesPerson.salesPersons}
                     // technicians={technician.technicians}
