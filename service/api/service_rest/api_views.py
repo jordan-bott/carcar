@@ -34,9 +34,25 @@ class ServiceAppointmentEncoder(ModelEncoder):
         return {"vip_treatment": count > 0}
 
 
-
+@require_http_methods(["GET", "POST"])
 def api_list_technicians(request):
-    pass
+    if request.method == "GET":
+        technicians = Technician.objects.all()
+        return JsonResponse(
+            technicians,
+            encoder=TechnicianEncoder,
+            safe=False,
+        )
+    else:
+        content = json.loads(request.body)
+
+        technician = Technician.objects.create(**content)
+        return JsonResponse(
+            technician,
+            encoder=TechnicianEncoder,
+            safe=False,
+        )
+
 
 
 @require_http_methods(["GET"])
