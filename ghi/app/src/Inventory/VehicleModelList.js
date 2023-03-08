@@ -1,5 +1,5 @@
 import React from 'react';
-import useFetch from './useFetch';
+import useFetch from '../useFetch';
 
 export default function VehicleModelList() {
     const { data, isLoading, error } = useFetch('http://localhost:8100/api/models/');

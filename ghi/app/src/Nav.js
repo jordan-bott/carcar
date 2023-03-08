@@ -1,8 +1,8 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: "#364765" }}>
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">CarCar</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,6 +10,42 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
+            </li>
+            <li className="nav-item dropdown">
+              <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://img.icons8.com/arcade/25/null/trainers.png" /> Inventory
+              </NavLink>
+              <ul className="dropdown-menu">
+                <li>
+                  <Link to="/shoes" className="dropdown-item">List</Link>
+                  <Link to="/shoes/new" className="dropdown-item">Create</Link>
+                </li>
+              </ul>
+            </li>
+            <li className="nav-item dropdown">
+              <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://img.icons8.com/arcade/25/null/trainers.png" /> Service
+              </NavLink>
+              <ul className="dropdown-menu">
+                <li>
+                  <Link to="/shoes" className="dropdown-item">List</Link>
+                  <Link to="/shoes/new" className="dropdown-item">Create</Link>
+                </li>
+              </ul>
+            </li>
+            <li className="nav-item dropdown">
+              <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://img.icons8.com/arcade/25/null/santas-hat.png" /> Sales
+              </NavLink>
+              <ul className="dropdown-menu">
+                <li>
+                  <Link to="/shoes" className="dropdown-item">List</Link>
+                  <Link to="/shoes/new" className="dropdown-item">Create</Link>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>

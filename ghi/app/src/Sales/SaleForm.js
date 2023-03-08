@@ -113,7 +113,7 @@ export default function SaleForm({ autos, salesPeople, customers, sales }) {
                             <label htmlFor="price">Sale price</label>
                         </div>
                         <div className="text-end">
-                            {!isLoading ? <button className="btn btn-outline-success">Create</button> : <button className="btn btn-outline-success">Loading... Press me again in a few seconds</button>}
+                            {!isLoading ? <button className="btn btn-outline-success">Create</button> : <button className="btn btn-outline-success">Loading... Press me again in about 10 seconds</button>}
                         </div>
                     </form>
                 </div>

@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
-import ManufacturerList from './ManufacturerList';
-import ManufacturerForm from './ManufacturerForm';
-import VehicleModelList from './VehicleModelList';
-import VehicleModelForm from './VehicleModelForm';
+import ManufacturerList from './Inventory/ManufacturerList';
+import ManufacturerForm from './Inventory/ManufacturerForm';
+import VehicleModelList from './Inventory/VehicleModelList';
+import VehicleModelForm from './Inventory/VehicleModelForm';
 import SalesPersonForm from './Sales/SalesPersonForm';
 import CustomerForm from './Sales/CustomerForm';
 import SaleList from './Sales/SaleList';
@@ -29,8 +29,8 @@ import SaleForm from './Sales/SaleForm';
 
 
 
-import AddAutoForm from './AutomobileForm';
-import AutomobileList from './AutomobileList';
+import AddAutoForm from './Inventory/AutomobileForm';
+import AutomobileList from './Inventory/AutomobileList';
 
 
 function App(props) {
