@@ -25,12 +25,12 @@ import SaleForm from './Sales/SaleForm';
 
 
 
-
-
-
-
-import AddAutoForm from './Inventory/AutomobileForm';
-import AutomobileList from './Inventory/AutomobileList';
+import ListServiceHistory from './ServiceHistory';
+import ListServiceAppointments from './ServiceAppointmentList';
+import AddServiceAppointment from './ServiceAppointmentForm';
+import AddTechnicianForm from './TechnicianForm';
+import AddAutoForm from './AutomobileForm';
+import AutomobileList from './AutomobileList';
 
 
 function App(props) {
@@ -42,7 +42,7 @@ function App(props) {
     // props.customers === undefined ||
     props.salesPeople === undefined // ||
     // props.technicians === undefined ||
-    // props.appointments === undefined
+    props.appointments === undefined
   ) {
     return null;
   }
@@ -78,12 +78,12 @@ function App(props) {
           </Route>
           <Route path="service">
             <Route path="customers/new" />
-            <Route path="technicians/new" />
+            <Route path="technicians/new" element={<AddTechnicianForm />} />
             <Route path="appointments">
-              <Route path="" />
-              <Route path="new" />
+              <Route path="" element={<ListServiceAppointments />} />
+              <Route path="new" element={<AddServiceAppointment />} />
             </Route>
-            <Route path="history" />
+            <Route path="history" element={<ListServiceHistory />} />
           </Route>
         </Routes>
       </div>
