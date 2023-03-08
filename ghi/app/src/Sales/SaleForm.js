@@ -8,13 +8,6 @@ export default function SaleForm({ autos, salesPeople, customers, sales }) {
     const [carSales, setCarSales] = useState(sales);
     const [unsoldCars, setUnsoldCars] = useState([]);
 
-    const soldCarVins = carSales.map(sale => sale.automobile.vin)
-    // const filterUnsoldCars = () => {
-    //     setUnsoldCars(autos.filter(car => !(soldCarVins.includes(car.vin))));
-    // }
-    // useEffect(filterUnsoldCars(), [carSales])
-    const unsoldAutos = autos.filter(car => !(soldCarVins.includes(car.vin)))
-
     const handleAutoChange = (event) => {
         setAutomobile(event.target.value);
     }
@@ -34,17 +27,17 @@ export default function SaleForm({ autos, salesPeople, customers, sales }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const data = {
+        const data = JSON.stringify({
             automobile,
             sales_person: salesPerson,
             customer,
             price,
-        }
+        })
 
         const url = "http://localhost:8090/api/sales/";
         const fetchConfig = {
             method: "post",
-            body: JSON.stringify(data),
+            body: data,
             headers: {
                 "Content-Type": "application/json",
             }
@@ -55,10 +48,24 @@ export default function SaleForm({ autos, salesPeople, customers, sales }) {
             setSalesPerson("");
             setCustomer("");
             setPrice("");
+
+            const fetchNewSales = async () => {
+                const newDataResponse = await fetch(url);
+                if (newDataResponse.ok) {
+                    const newData = await newDataResponse.json();
+                    setCarSales(newData.sales)
+                }
+            }
+            fetchNewSales();
         }
 
     }
 
+    useEffect(() => {
+        const soldCarVins = carSales.map(sale => sale.automobile.vin);
+        const unsoldAutos = autos.filter(car => !(soldCarVins.includes(car.vin)));
+        setUnsoldCars(unsoldAutos);
+    }, [carSales])
 
     return (
         <div className="row">
@@ -69,7 +76,7 @@ export default function SaleForm({ autos, salesPeople, customers, sales }) {
                         <div className="form-floating mb-3">
                             <select value={automobile} onChange={handleAutoChange} required name="automobile" id="automobile" className="form-select">
                                 <option value="">Choose an automobile</option>
-                                {unsoldAutos.map(auto => {
+                                {unsoldCars.map(auto => {
                                     return (
                                         <option key={auto.vin} value={auto.vin}>
                                             {auto.year} {auto.model.manufacturer.name} {auto.model.name} - {auto.color}
