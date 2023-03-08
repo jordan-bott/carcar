@@ -91,6 +91,18 @@ def api_list_all_service_appointments(request):
             safe=False
         )
 
+@require_http_methods(["PUT"])
+def api_update_appointment(request, id):
+    content = json.loads(request.body)
+    services = ServiceAppointment.objects.filter(id=id).update(**content)
+    service = ServiceAppointment.objects.get(id=id)
+
+    return JsonResponse(
+        service,
+        encoder=ServiceAppointmentEncoder,
+        safe=False,
+    )
+
 @require_http_methods(["GET"])
 def api_list_service_appointments_by_vin(request, vin):
     services = ServiceAppointment.objects.filter(vin=vin)

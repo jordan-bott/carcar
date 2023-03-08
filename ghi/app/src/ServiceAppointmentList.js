@@ -1,10 +1,25 @@
 import React, { useEffect, useState } from "react";
 
 
-function ListServiceAppointments(props) {
+function ListServiceAppointments() {
 
+    const [services, setAppointments] = useState([]);
+    const [status, setStatus] = useState(0);
 
-    const [appointment, setAppointment] = useState('')
+    const fetchAppointmentList = async () => {
+
+        const listUrl = "http://localhost:8080/api/services/upcoming/"
+        const fetchList = await fetch(listUrl)
+
+        if (fetchList.ok) {
+            const appointmentData = await fetchList.json()
+            setAppointments(appointmentData.services)
+        }
+    }
+
+    useEffect(() => {
+        fetchAppointmentList();
+    }, [status]);
 
     const handleAppointmentCancel = async (appointment, event) => {
 
@@ -12,37 +27,18 @@ function ListServiceAppointments(props) {
         const cancelUrl = `http://localhost:8080/api/services/${appointment}/cancel/`
 
 
-        const response = await fetch(cancelUrl, {method: "PUT"})
-
+        const response = await fetch(cancelUrl, { method: "PUT"})
 
 
         if (response.ok) {
-            const updatedAppointment = await response.json()
-            setAppointment(updatedAppointment)
-
-
+            setStatus(status+1)
+            console.log(status)
 
         }
 
 
-        // const fetchUpdatedAppointments = async () => {
-        //     const newDataResponse = await fetch('http://localhost:8080/api/services/upcoming/')
-
-        //     if (newDataResponse.ok) {
-        //         const newData = await newDataResponse.json()
-        //         setAppointments(newData.appointments)
-        //     }
-        // }
     }
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const result = await fetch("http://localhost:8080/api/services/upcoming/")
-    //         const jsonResult = await result.json()
-
-    //         setAppointments(jsonResult)
-    //     }
-    // })
 
 
     const image = <img src="https://img.icons8.com/external-bearicons-outline-color-bearicons/35/null/external-vip-reputation-bearicons-outline-color-bearicons.png"/>
@@ -64,7 +60,7 @@ function ListServiceAppointments(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.appointments.map(appointment => {
+                    {services.map(appointment => {
                     return (
                         <tr key={appointment.id}>
                             { appointment.vip_treatment ? <td>{image}</td> : <td></td>}
