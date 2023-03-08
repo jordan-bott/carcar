@@ -32,13 +32,6 @@ class ServiceAppointmentEncoder(ModelEncoder):
         count = AutomobileVO.objects.filter(vin=o.vin).count()
         return {"vip_treatment": count > 0}
 
-def api_technicians(request):
-    services = ServiceAppointment.objects.all()
-    return JsonResponse(
-        services,
-        encoder=ServiceAppointmentEncoder,
-        safe=False,
-    )
 
 @require_http_methods(["GET", "POST"])
 def api_add_tech(request):
