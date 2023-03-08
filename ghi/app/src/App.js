@@ -8,7 +8,7 @@ import VehicleModelForm from './VehicleModelForm';
 import SalesPersonForm from './Sales/SalesPersonForm';
 import CustomerForm from './Sales/CustomerForm';
 import SaleList from './Sales/SaleList';
-import SaleHistory from './Sales/SaleHistory';
+import SalesPersonHistory from './Sales/SalesPersonHistory';
 
 
 
@@ -72,7 +72,7 @@ function App(props) {
             <Route path="customers/new" element={<CustomerForm />} />
             <Route path="salesperson">
               <Route path="new" element={<SalesPersonForm />} />
-              <Route path="history" element={<SaleHistory sales={props.sales} salesPeople={props.salesPeople} />} />
+              <Route path="history" element={<SalesPersonHistory sales={props.sales} salesPeople={props.salesPeople} autos={props.automobiles} />} />
             </Route>
           </Route>
           <Route path="service">
