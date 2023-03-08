@@ -32,7 +32,23 @@ function ListServiceAppointments() {
 
         if (response.ok) {
             setStatus(status+1)
-            console.log(status)
+
+        }
+
+
+    }
+
+    const handleAppointmentFinish = async (appointment, event) => {
+
+
+        const finishUrl = `http://localhost:8080/api/services/${appointment}/finish/`
+
+
+        const response = await fetch(finishUrl, { method: "PUT"})
+
+
+        if (response.ok) {
+            setStatus(status+1)
 
         }
 
@@ -70,8 +86,8 @@ function ListServiceAppointments() {
                             <td>{ appointment.appointment_time }</td>
                             <td>{ appointment.technician.name }</td>
                             <td>{ appointment.service_reason }</td>
-                            <td><button onClick={() => handleAppointmentCancel(appointment.id)}>CANCEL</button></td>
-                            <td></td>
+                            <td><button className="btn btn-danger" onClick={() => handleAppointmentCancel(appointment.id)}>CANCEL</button></td>
+                            <td><button className="btn btn-success" onClick={() => handleAppointmentFinish(appointment.id)}>FINISH</button></td>
                         </tr>
                     );
                     })}
