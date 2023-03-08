@@ -21,7 +21,7 @@ async function loadData() {
     const manufacturerResponse = await fetch('http://localhost:8100/api/manufacturers/');
     const vehicleModelResponse = await fetch('http://localhost:8100/api/models/');
     const salesResponse = await fetch('http://localhost:8090/api/sales/');
-    // const customerResponse = await fetch('');
+    const customerResponse = await fetch('http://localhost:8090/api/customers/');
     const salesPersonResponse = await fetch('http://localhost:8090/api/salespeople/');
 
     // const technicianResponse = await fetch('');
@@ -33,7 +33,7 @@ async function loadData() {
             manufacturerResponse.ok &&
             vehicleModelResponse.ok &&
             salesResponse.ok &&
-            // customerResponse.ok &&
+            customerResponse.ok &&
             salesPersonResponse.ok // &&
             // technicianResponse.ok &&
             // appointmentResponse.ok
@@ -43,7 +43,7 @@ async function loadData() {
             const manufacturer = await manufacturerResponse.json();
             const vehicleModel = await vehicleModelResponse.json();
             const sales = await salesResponse.json();
-            // const customer = await customerResponse.json();
+            const customer = await customerResponse.json();
             const salesPerson = await salesPersonResponse.json();
             // const technician = await technicianResponse.json();
             // const appointment = await appointmentResponse.json();
@@ -56,7 +56,7 @@ async function loadData() {
                         manufacturers={manufacturer.manufacturers}
                         vehicleModels={vehicleModel.models}
                         sales={sales.sales}
-                        // customers={customer.customers}
+                        customers={customer.customers}
                         salesPeople={salesPerson.sales_people}
                     // technicians={technician.technicians}
                     // appointments={appointment.appointments}

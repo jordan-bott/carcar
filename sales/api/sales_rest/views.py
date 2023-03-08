@@ -96,31 +96,36 @@ def api_sales(request):
         )
     else:
         content = json.loads(request.body)
+
         try:
             auto_vin = content["automobile"]
             auto = AutomobileVO.objects.get(vin=auto_vin)
             content["automobile"] = auto
+
+            sales_person = SalesPerson.objects.get(
+                employee_number=content["sales_person"]
+            )
+            content["sales_person"] = sales_person
+
+            customer = Customer.objects.get(id=content["customer"])
+            content["customer"] = customer
+
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid automobile vin. Try again buddy!"},
                 status=400,
             )
-        try:
-            sales_person = SalesPerson.objects.get(id=content["sales_person_id"])
-            content["sales_person"] = sales_person
         except SalesPerson.DoesNotExist:
             return JsonResponse(
-                {"message": "Invalid sales person id. Try again buddy!"},
+                {"message": "Invalid sales person employee number. Try again buddy!"},
                 status=400,
             )
-        try:
-            customer = Customer.objects.get(id=content["customer_id"])
-            content["customer"] = customer
         except Customer.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid customer id. Try again buddy!"},
                 status=400,
             )
+
         sale = Sale.objects.create(**content)
         return JsonResponse(
             sale,
