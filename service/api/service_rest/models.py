@@ -10,7 +10,7 @@ class AutomobileVO(models.Model):
 
 class Technician(models.Model):
     name = models.CharField(max_length=100)
-    employee_number = models.IntegerField()
+    employee_number = models.IntegerField(unique=True)
 
 
 class ServiceAppointment(models.Model):

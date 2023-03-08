@@ -10,6 +10,7 @@ class TechnicianEncoder(ModelEncoder):
     properties = [
         "name",
         "employee_number",
+        "id",
     ]
 
 class ServiceAppointmentEncoder(ModelEncoder):
@@ -38,7 +39,7 @@ def api_add_tech(request):
     if request.method == "GET":
         technicians = Technician.objects.all()
         return JsonResponse(
-            technicians,
+            {"technicians": technicians},
             encoder = TechnicianEncoder,
             safe=False,
         )
