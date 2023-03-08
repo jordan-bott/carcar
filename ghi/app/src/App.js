@@ -39,9 +39,8 @@ function App(props) {
     props.manufacturers === undefined ||
     props.vehicleModels === undefined ||
     props.sales === undefined ||
-    // props.customers === undefined ||
-    props.salesPeople === undefined // ||
-    // props.technicians === undefined ||
+    props.customers === undefined ||
+    props.salesPeople === undefined ||
     props.appointments === undefined
   ) {
     return null;
@@ -77,7 +76,6 @@ function App(props) {
             </Route>
           </Route>
           <Route path="service">
-            <Route path="customers/new" />
             <Route path="technicians/new" element={<AddTechnicianForm />} />
             <Route path="appointments">
               <Route path="" element={<ListServiceAppointments />} />

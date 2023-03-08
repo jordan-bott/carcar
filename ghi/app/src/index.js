@@ -9,12 +9,6 @@ root.render(
     </React.StrictMode>
 );
 
-// sales, customer, sales person
-
-// technician, appointment,
-
-//automobile, manufacturer, vehicle model
-
 async function loadData() {
 
     const automobileResponse = await fetch('http://localhost:8100/api/automobiles/');
