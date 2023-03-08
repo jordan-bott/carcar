@@ -1,6 +1,10 @@
-import React from 'react'
+import React from 'react';
+import useFetch from './useFetch';
 
-export default function VehicleModelList(props) {
+export default function VehicleModelList() {
+    const { data, isLoading, error } = useFetch('http://localhost:8100/api/models/');
+    const vehicleModels = data.models
+
     return (
         <div className="mt-4">
             <h1>Vehicle Models</h1>
@@ -13,7 +17,9 @@ export default function VehicleModelList(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.vehicleModels.map((model) => {
+                    {isLoading && <tr><td>Loading...</td></tr>}
+                    {error && <tr><td>{error}</td></tr>}
+                    {vehicleModels && vehicleModels.map((model) => {
                         return (
                             <tr key={model.href}>
                                 <td>{model.name}</td>

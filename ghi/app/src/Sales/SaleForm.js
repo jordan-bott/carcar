@@ -7,6 +7,7 @@ export default function SaleForm({ autos, salesPeople, customers, sales }) {
     const [price, setPrice] = useState("");
     const [carSales, setCarSales] = useState(sales);
     const [unsoldCars, setUnsoldCars] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleAutoChange = (event) => {
         setAutomobile(event.target.value);
@@ -43,22 +44,17 @@ export default function SaleForm({ autos, salesPeople, customers, sales }) {
             }
         }
         const response = await fetch(url, fetchConfig);
+        setIsLoading(true);
+
         if (response.ok) {
+            const newSale = await response.json();
+            setCarSales(oldSales => [...oldSales, newSale])
             setAutomobile("");
             setSalesPerson("");
             setCustomer("");
             setPrice("");
-
-            const fetchNewSales = async () => {
-                const newDataResponse = await fetch(url);
-                if (newDataResponse.ok) {
-                    const newData = await newDataResponse.json();
-                    setCarSales(newData.sales)
-                }
-            }
-            fetchNewSales();
+            setIsLoading(false);
         }
-
     }
 
     useEffect(() => {
@@ -117,7 +113,7 @@ export default function SaleForm({ autos, salesPeople, customers, sales }) {
                             <label htmlFor="price">Sale price</label>
                         </div>
                         <div className="text-end">
-                            <button className="btn btn-outline-success">Create</button>
+                            {!isLoading ? <button className="btn btn-outline-success">Create</button> : <button className="btn btn-outline-success">Loading... Press me again in a few seconds</button>}
                         </div>
                     </form>
                 </div>

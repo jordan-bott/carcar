@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function VehicleModelForm(props) {
     const [name, setName] = useState("");
     const [pictureUrl, setPictureUrl] = useState("");
     const [manufacturer, setManufacturer] = useState("");
+    const navigate = useNavigate();
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -40,6 +42,7 @@ export default function VehicleModelForm(props) {
             setName("");
             setPictureUrl("");
             setManufacturer("");
+            navigate("/inventory/models")
         }
     }
 
