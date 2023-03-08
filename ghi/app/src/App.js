@@ -1,36 +1,21 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
-import ManufacturerList from './Inventory/ManufacturerList';
+import AddAutoForm from './Inventory/AutomobileForm';
+import AutomobileList from './Inventory/AutomobileList';
 import ManufacturerForm from './Inventory/ManufacturerForm';
-import VehicleModelList from './Inventory/VehicleModelList';
+import ManufacturerList from './Inventory/ManufacturerList';
 import VehicleModelForm from './Inventory/VehicleModelForm';
-import SalesPersonForm from './Sales/SalesPersonForm';
+import VehicleModelList from './Inventory/VehicleModelList';
 import CustomerForm from './Sales/CustomerForm';
-import SaleList from './Sales/SaleList';
-import SalesPersonHistory from './Sales/SalesPersonHistory';
 import SaleForm from './Sales/SaleForm';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import ListServiceHistory from './ServiceHistory';
-import ListServiceAppointments from './ServiceAppointmentList';
-import AddServiceAppointment from './ServiceAppointmentForm';
-import AddTechnicianForm from './TechnicianForm';
-import AddAutoForm from './AutomobileForm';
-import AutomobileList from './AutomobileList';
+import SaleList from './Sales/SaleList';
+import SalesPersonForm from './Sales/SalesPersonForm';
+import SalesPersonHistory from './Sales/SalesPersonHistory';
+import AddServiceAppointment from './Service/ServiceAppointmentForm';
+import ListServiceAppointments from './Service/ServiceAppointmentList';
+import ListServiceHistory from './Service/ServiceHistory';
+import AddTechnicianForm from './Service/TechnicianForm';
 
 
 function App(props) {
