@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 
 function ListServiceAppointments(props) {
 
-    const [updatedAppointments, setAppointments] = useState(props.appointments)
 
+    const [appointment, setAppointment] = useState('')
 
     const handleAppointmentCancel = async (appointment, event) => {
 
@@ -14,25 +14,35 @@ function ListServiceAppointments(props) {
 
         const response = await fetch(cancelUrl, {method: "PUT"})
 
+
+
         if (response.ok) {
-            const cancelAppointment = await response.json()
+            const updatedAppointment = await response.json()
+            setAppointment(updatedAppointment)
 
 
-            console.log(updatedAppointments)
+
         }
 
 
-        const fetchUpdatedAppointments = async () => {
-            const newDataResponse = await fetch('http://localhost:8080/api/services/upcoming/')
+        // const fetchUpdatedAppointments = async () => {
+        //     const newDataResponse = await fetch('http://localhost:8080/api/services/upcoming/')
 
-            if (newDataResponse.ok) {
-                const newData = await newDataResponse.json()
-                setAppointments(newData.appointments)
-            }
-        }
+        //     if (newDataResponse.ok) {
+        //         const newData = await newDataResponse.json()
+        //         setAppointments(newData.appointments)
+        //     }
+        // }
     }
 
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const result = await fetch("http://localhost:8080/api/services/upcoming/")
+    //         const jsonResult = await result.json()
 
+    //         setAppointments(jsonResult)
+    //     }
+    // })
 
 
     const image = <img src="https://img.icons8.com/external-bearicons-outline-color-bearicons/35/null/external-vip-reputation-bearicons-outline-color-bearicons.png"/>
@@ -54,7 +64,7 @@ function ListServiceAppointments(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {updatedAppointments.map(appointment => {
+                    {props.appointments.map(appointment => {
                     return (
                         <tr key={appointment.id}>
                             { appointment.vip_treatment ? <td>{image}</td> : <td></td>}
@@ -64,7 +74,7 @@ function ListServiceAppointments(props) {
                             <td>{ appointment.appointment_time }</td>
                             <td>{ appointment.technician.name }</td>
                             <td>{ appointment.service_reason }</td>
-                            <td><button on={() => handleAppointmentCancel(appointment.id)}>CANCEL</button></td>
+                            <td><button onClick={() => handleAppointmentCancel(appointment.id)}>CANCEL</button></td>
                             <td></td>
                         </tr>
                     );
