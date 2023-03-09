@@ -17,8 +17,9 @@ CarCar is a Web application that is designed to manage an automobile dealership 
 
 Docker is used to run the application. To use the app, follow the steps for the installation below and refer to each microservice's section.
 
-<details><summary>Diagram</summary>
-**PUT DIAGRAM HERE**
+<details><summary><strong>Diagram</strong></summary>
+**Need to upload image to project-beta folder and add path below to img tag**
+<img src="">
 </details>
 
 ## Installation
@@ -49,7 +50,95 @@ The Inventory microservice consists of one main microservice, **api**, and repre
 Api is a Django application with a Django project, `inventory_project`, and a Django app, `inventory_rest`, where the latter handles create, read, update, and delete (CRUD) functionality for manufacturers (`Manufacturer` objects), vehicle models (`VehicleModel` objects), and automobiles (`Automobile` objects).
 
 ### RESTful API (Port 8100)
+#### Manufacturer
+| Method | URL | Action | View |
+| ------ | ------ | ------ | ------ |
+| GET | `http://localhost:8100/api/manufacturers/` | List all manufacturers | `api_manufacturers` |
+| POST | `http://localhost:8100/api/manufacturers/` | Create a manufacturer | `api_manufacturers` |
+| GET | `http://localhost:8100/api/manufacturers/<id>/` | Show a manufacturer's details | `api_manufacturer` |
+| PUT | `http://localhost:8100/api/manufacturers/<id>/` | Update a manufacturer | `api_manufacturer` |
+| DELETE | `http://localhost:8100/api/manufacturers/<id>/` | Delete a manufacturer | `api_manufacturer` |
 
+<details>
+<summary><strong>Example GET Outputs</strong></summary>
+
+##### List all manufacturers:
+```
+{
+	"manufacturers": [
+		{
+			"href": "/api/manufacturers/2/",
+			"id": 2,
+			"name": "Nissan"
+		},
+		{
+			"href": "/api/manufacturers/1/",
+			"id": 1,
+			"name": "Toyota"
+		}
+	]
+}
+```
+##### Show a manufacturer's details:
+```
+{
+	"href": "/api/manufacturers/1/",
+	"id": 1,
+	"name": "Toyota"
+}
+```
+</details>
+
+<details>
+<summary><strong>Example POST and PUT Input and Output</strong></summary>
+
+##### Input:
+```
+{
+	"name": "Toyota"
+}
+```
+
+##### Output:
+```
+{
+	"href": "/api/manufacturers/1/",
+	"id": 1,
+	"name": "Toyota"
+}
+```
+
+</details>
+
+<details><summary><strong>Example DELETE Output</strong></summary>
+<br>
+
+```
+{
+	"id": null,
+	"name": "Toyota"
+}
+```
+</details>
+
+
+#### Vehicle Model
+| Method | URL | Action | View | Example Input | Example Output |
+| ------ | ------ | ------ | ------ | ------ | ------ |
+| GET |  |  |  |  |
+| POST |  | | |  |
+| GET |  |  |  |
+| PUT |  | |  |
+| DELETE |  |  |  |
+
+#### Manufacturer
+| Method | URL | Action | View | Example Input | Example Output |
+| ------ | ------ | ------ | ------ | ------ | ------ |
+| GET |  |  |  |  |
+| POST |  | | |  |
+| GET |  |  |  |
+| PUT |  | |  |
+| DELETE |  |  |  |
 
 ### Models
 `Manufacturer`
