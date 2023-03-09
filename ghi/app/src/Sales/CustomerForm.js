@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CustomerForm() {
     const [name, setName] = useState("");
@@ -59,16 +61,21 @@ export default function CustomerForm() {
             }
         }
         const response = await fetch(url, fetchConfig);
-        if (response.ok) {
-            setName("");
-            setStreet("");
-            setApartment("");
-            setCity("");
-            setState("");
-            setZipCode("");
-            setPhoneNumber("");
+        try {
+            if (response.ok) {
+                const newCustomer = await response.json();
+                setName("");
+                setStreet("");
+                setApartment("");
+                setCity("");
+                setState("");
+                setZipCode("");
+                setPhoneNumber("");
+                toast(`🤸🏾 ${newCustomer.name} was successfully added as a customer!`)
+            }
+        } catch (e) {
+            toast.error(e);
         }
-
     }
 
 
@@ -76,7 +83,10 @@ export default function CustomerForm() {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4 rounded-3">
-                    <h1 className="text-center mb-3">Add a Customer</h1>
+                    <div className="d-flex mb-3 align-items-center justify-content-center">
+                        <h1>Add a Customer</h1>
+                        <img src="https://cdn-icons-png.flaticon.com/512/2037/2037710.png" className="ms-2" style={{ width: "35px" }} />
+                    </div>
                     <form onSubmit={handleSubmit} className="row g-3">
                         <div className="col-12 form-floating">
                             <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
@@ -86,13 +96,13 @@ export default function CustomerForm() {
                             <input value={phoneNumber} onChange={handlePhoneNumberChange} placeholder="Phone Number" required type="tel" name="phone_number" id="phone_number" className="form-control" />
                             <label className="mx-2" htmlFor="phone_number">Phone Number (XXX-XXX-XXXX)</label>
                         </div>
-                        <div className="col-md-9 form-floating">
+                        <div className="col-md-8 form-floating">
                             <input value={street} onChange={handleStreetChange} placeholder="Street Address" required type="text" name="street" id="street" className="form-control" />
                             <label className="mx-2" htmlFor="street">Street Address</label>
                         </div>
-                        <div className="col-md-3 form-floating">
+                        <div className="col-md-4 form-floating">
                             <input value={apartment} onChange={handleApartmentChange} placeholder="Apt/Suite" type="text" name="apartment" id="apartment" className="form-control" />
-                            <label className="mx-1" htmlFor="apartment">Apt/Suite</label>
+                            <label className="mx-1" htmlFor="apartment">Apt/Suite (Optional)</label>
                         </div>
                         <div className="col-md-12 form-floating">
                             <input value={city} onChange={handleCityChange} placeholder="City" required type="text" name="city" id="city" className="form-control" />
@@ -110,8 +120,8 @@ export default function CustomerForm() {
                                 <label htmlFor="zip_code">Zip Code</label>
                             </div>
                         </div>
-                        <div className="col-12 text-end">
-                            <button className="btn btn-outline-success">Create</button>
+                        <div className="d-grid col-md-6 mx-auto">
+                            <button className="btn btn-outline-primary">Add Customer</button>
                         </div>
                     </form>
                 </div>

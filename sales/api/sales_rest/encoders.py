@@ -5,6 +5,7 @@ from .models import SalesPerson, Customer, Sale, AutomobileVO
 class SalesPersonEncoder(ModelEncoder):
     model = SalesPerson
     properties = [
+        "id",
         "name",
         "employee_number",
     ]
@@ -31,6 +32,7 @@ class AutomobileVOEncoder(ModelEncoder):
 class SaleEncoder(ModelEncoder):
     model = Sale
     properties = [
+        "id",
         "price",
         "automobile",
         "sales_person",

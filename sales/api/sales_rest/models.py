@@ -6,9 +6,6 @@ class SalesPerson(models.Model):
     name = models.CharField(max_length=200)
     employee_number = models.PositiveIntegerField(unique=True)
 
-    def get_api_url(self):
-        return reverse("api_sales_person", kwargs={"id": self.id})
-
     def __str__(self):
         return self.name
 
@@ -29,9 +26,6 @@ class Customer(models.Model):
         return (
             f"{self.street} {self.apartment}, {self.city}, {self.state} {self.zip_code}"
         )
-
-    def get_api_url(self):
-        return reverse("api_customer", kwargs={"id": self.id})
 
     def __str__(self):
         return self.name
@@ -64,10 +58,7 @@ class Sale(models.Model):
     )
 
     def get_api_url(self):
-        return reverse("api_sale", kwargs={"id": self.id})
-
-    class Meta:
-        ordering = ("sales_person", "customer", "price")
+        return reverse("api_show_sale", kwargs={"id": self.id})
 
     def __str__(self):
         return f"{self.automobile} - {self.customer}"

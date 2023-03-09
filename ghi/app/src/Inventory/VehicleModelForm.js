@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useFetch from '../useFetch';
 
-export default function VehicleModelForm(props) {
+export default function VehicleModelForm() {
     const [name, setName] = useState("");
     const [pictureUrl, setPictureUrl] = useState("");
     const [manufacturer, setManufacturer] = useState("");
+    const manufacturers = useFetch("http://localhost:8100/api/manufacturers/", "manufacturers")
     const navigate = useNavigate();
 
     const handleNameChange = (event) => {
@@ -42,7 +44,7 @@ export default function VehicleModelForm(props) {
             setName("");
             setPictureUrl("");
             setManufacturer("");
-            navigate("/inventory/models")
+            navigate("/inventory/models");
         }
     }
 
@@ -50,7 +52,7 @@ export default function VehicleModelForm(props) {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4 rounded-3">
-                    <h1 className="text-center mb-3">Create a vehicle model</h1>
+                    <h1 className="text-center mb-3">Add a Vehicle Model</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="form-floating mb-3">
                             <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name"
@@ -64,7 +66,7 @@ export default function VehicleModelForm(props) {
                         <div className="form-floating mb-3">
                             <select value={manufacturer} onChange={handleManufacturerChange} required name="manufacturer" id="manufacturer" className="form-select">
                                 <option value="">Choose a manufacturer</option>
-                                {props.manufacturers.map(manufacturer => {
+                                {manufacturers.map(manufacturer => {
                                     return (
                                         <option key={manufacturer.id} value={manufacturer.id}>
                                             {manufacturer.name}
@@ -74,7 +76,9 @@ export default function VehicleModelForm(props) {
                             </select>
                             <label htmlFor="manufacturer">Manufacturer</label>
                         </div>
-                        <button className="btn btn-primary">Create</button>
+                        <div className="d-grid col-md-6 mx-auto">
+                            <button className="btn btn-outline-primary">Add Model</button>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -1,25 +1,26 @@
 import React from 'react';
+import useFetch from '../useFetch';
 
 export default function SalesFilteredList({ sales, salesPerson }) {
-  const filteredSales = sales.filter((sale) => {
+  const filteredSales = [...sales].reverse().filter((sale) => {
     if (sale.sales_person.employee_number === parseInt(salesPerson)) {
       return sale;
-    } else if (salesPerson === "Filter by sales person" || salesPerson === "") {
+    } else if (salesPerson === "Filter by sales person") {
       return sale;
     }
   })
 
   return (
-    <table className="table text-center align-center">
+    <table className="table align-center">
       <thead>
         <tr>
           <th>Sales Person</th>
-          <th>Purchaser</th>
-          <th>Automobile</th>
+          <th>Customer</th>
+          <th>VIN</th>
           <th>Price</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="table-group-divider">
         {filteredSales.map((sale) => {
           return (
             <tr key={sale.href}>
