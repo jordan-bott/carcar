@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddTechnicianForm() {
 
@@ -35,7 +37,9 @@ function AddTechnicianForm() {
         const response = await fetch(technicianUrl, fetchConfig);
 
         if (response.ok) {
-            const addTechnician = await response.json()
+            const technician = await response.json()
+            toast(`Please welcome ${technician.name}🧑🏻‍🔧 to the team!! 🎉`)
+
 
             setName('')
             setEmployeeNumber('');
@@ -44,23 +48,23 @@ function AddTechnicianForm() {
 
     return (
         <div className="row">
-        <div className="offset-3 col-6">
-            <div className="shadow p-4 mt-4">
-                <h1>Add a New Technician</h1>
-                <form onSubmit={handleSubmit} id="add-technician-form">
-                    <div className="form-floating mb-3">
-                        <input onChange={handleNameChange} value={name} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
-                        <label htmlFor="name">Name</label>
-                    </div>
-                    <div className="form-floating mb-3">
-                        <input onChange={handleEmployeeNumberChange} value={employeeNumber} placeholder="Employee Number" required type="number" name="employee_number" id="employee_number" className="form-control" />
-                        <label htmlFor="employee_number">Employee Number</label>
-                    </div>
-                    <button className="btn btn-primary">Add Technician</button>
-                </form>
+            <div className="offset-3 col-6">
+                <div className="shadow p-4 mt-4">
+                    <h1>Add a New Technician</h1>
+                    <form onSubmit={handleSubmit} id="add-technician-form">
+                        <div className="form-floating mb-3">
+                            <input onChange={handleNameChange} value={name} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
+                            <label htmlFor="name">Name</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                            <input onChange={handleEmployeeNumberChange} value={employeeNumber} placeholder="Employee Number" required type="number" name="employee_number" id="employee_number" className="form-control" />
+                            <label htmlFor="employee_number">Employee Number</label>
+                        </div>
+                        <button className="btn btn-primary">Add Technician</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
     )
 }
 export default AddTechnicianForm;

@@ -40,3 +40,6 @@ class ServiceAppointment(models.Model):
     def cancel(self):
         self.status = "CANCELED"
         self.save()
+
+    class Meta():
+        ordering = ("appointment_date", "appointment_time", "technician")
