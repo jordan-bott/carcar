@@ -18,8 +18,7 @@ CarCar is a Web application that is designed to manage an automobile dealership 
 Docker is used to run the application. To use the app, follow the steps for the installation below and refer to each microservice's section.
 
 <details><summary><strong>Diagram</strong></summary>
-**Need to upload image to project-beta folder and add path below to img tag**
-<img src="">
+<img src="/CarCarModel.png">
 </details>
 
 ## Installation
