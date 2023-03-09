@@ -1,3 +1,4 @@
+from django.db import IntegrityError
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 import json
@@ -11,7 +12,7 @@ from .encoders import (
 
 
 @require_http_methods(["GET", "POST"])
-def api_sales_people(request):
+def api_list_sales_people(request):
     if request.method == "GET":
         sales_people = SalesPerson.objects.all()
         return JsonResponse(
@@ -19,17 +20,28 @@ def api_sales_people(request):
             encoder=SalesPersonEncoder,
         )
     else:
-        content = json.loads(request.body)
-        sales_person = SalesPerson.objects.create(**content)
-        return JsonResponse(
-            sales_person,
-            encoder=SalesPersonEncoder,
-            safe=False,
-        )
+        try:
+            content = json.loads(request.body)
+            sales_person = SalesPerson.objects.create(**content)
+            return JsonResponse(
+                sales_person,
+                encoder=SalesPersonEncoder,
+                safe=False,
+            )
+        except IntegrityError:
+            return JsonResponse(
+                {"message": "Cannot give null or an existing employee number!"},
+                status=400,
+            )
+        except ValueError:
+            return JsonResponse(
+                {"message": "Incorrect value type"},
+                status=400,
+            )
 
 
 @require_http_methods(["GET", "DELETE"])
-def api_sales_person(request, id):
+def api_show_sales_person(request, id):
     try:
         sales_person = SalesPerson.objects.get(id=id)
     except SalesPerson.DoesNotExist:
@@ -49,7 +61,7 @@ def api_sales_person(request, id):
 
 
 @require_http_methods(["GET", "POST"])
-def api_customers(request):
+def api_list_customers(request):
     if request.method == "GET":
         customers = Customer.objects.all()
         return JsonResponse(
@@ -67,7 +79,7 @@ def api_customers(request):
 
 
 @require_http_methods(["GET", "DELETE"])
-def api_customer(request, id):
+def api_show_customer(request, id):
     try:
         customer = Customer.objects.get(id=id)
     except Customer.DoesNotExist:
@@ -87,7 +99,7 @@ def api_customer(request, id):
 
 
 @require_http_methods(["GET", "POST"])
-def api_sales(request):
+def api_list_sales(request):
     if request.method == "GET":
         sales = Sale.objects.all()
         return JsonResponse(
@@ -100,25 +112,26 @@ def api_sales(request):
         try:
             auto = AutomobileVO.objects.get(vin=content["automobile"])
             content["automobile"] = auto
-
-            sales_person = SalesPerson.objects.get(
-                employee_number=content["sales_person"]
-            )
-            content["sales_person"] = sales_person
-
-            customer = Customer.objects.get(id=content["customer"])
-            content["customer"] = customer
-
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid automobile vin. Try again buddy!"},
                 status=400,
             )
+
+        try:
+            sales_person = SalesPerson.objects.get(
+                employee_number=content["sales_person"]
+            )
+            content["sales_person"] = sales_person
         except SalesPerson.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid sales person employee number. Try again buddy!"},
                 status=400,
             )
+
+        try:
+            customer = Customer.objects.get(id=content["customer"])
+            content["customer"] = customer
         except Customer.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid customer id. Try again buddy!"},
@@ -134,7 +147,7 @@ def api_sales(request):
 
 
 @require_http_methods(["GET", "DELETE"])
-def api_sale(request, id):
+def api_show_sale(request, id):
     try:
         sale = Sale.objects.get(id=id)
     except Sale.DoesNotExist:

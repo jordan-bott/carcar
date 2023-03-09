@@ -9,15 +9,15 @@ function Nav() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
+              <NavLink className="nav-link active me-2" aria-current="page" to="/">Home</NavLink>
             </li>
-            <li className="nav-item dropdown">
+            <li className="nav-item dropdown me-2">
               <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://cdn-icons-png.flaticon.com/512/5044/5044773.png" className="pe-1 d-inline-block align-text-top" style={{ width: "25px" }} /> Inventory
               </NavLink>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu dropdown-menu-end">
                 <li>
                   <Link to="/inventory/manufacturers" className="dropdown-item">List manufacturers</Link>
                 </li>
@@ -44,11 +44,11 @@ function Nav() {
                 </li>
               </ul>
             </li>
-            <li className="nav-item dropdown">
+            <li className="nav-item dropdown me-2">
               <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://cdn-icons-png.flaticon.com/512/5044/5044358.png" className="pe-1 d-inline-block align-text-top" style={{ width: "25px" }} />Sales
               </NavLink>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu dropdown-menu-end">
                 <li>
                   <Link to="/sales/salesperson/new" className="dropdown-item">Add a sales person</Link>
                 </li>
@@ -73,7 +73,7 @@ function Nav() {
               <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://cdn-icons-png.flaticon.com/512/5044/5044168.png" className="pe-1 d-inline-block align-text-top" style={{ width: "25px" }} />Service
               </NavLink>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu dropdown-menu-end">
                 <li>
                   <Link to="/service/technicians/new" className="dropdown-item">Add a technician</Link>
                 </li>

@@ -76,7 +76,10 @@ export default function CustomerForm() {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4 rounded-3">
-                    <h1 className="text-center mb-3">Add a Customer</h1>
+                    <div className="d-flex mb-3 align-items-center justify-content-center">
+                        <h1>Add a Customer</h1>
+                        <img src="https://cdn-icons-png.flaticon.com/512/2037/2037710.png" className="ms-2" style={{ width: "35px" }} />
+                    </div>
                     <form onSubmit={handleSubmit} className="row g-3">
                         <div className="col-12 form-floating">
                             <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control" />

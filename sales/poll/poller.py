@@ -27,11 +27,8 @@ def get_automobiles():
 
 def poll():
     while True:
-        try:
-            get_automobiles()
-        except Exception as e:
-            print(e, file=sys.stderr)
-        time.sleep(60)
+        get_automobiles()
+        time.sleep(10)
 
 
 if __name__ == "__main__":

@@ -9,6 +9,7 @@ export default function SaleForm() {
     const [carSales, setCarSales] = useState([]);
     const [unsoldCars, setUnsoldCars] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
     const autos = useFetch("http://localhost:8100/api/automobiles/", "autos");
     const salesPeople = useFetch("http://localhost:8090/api/salespeople/", "sales_people");
     const customers = useFetch("http://localhost:8090/api/customers/", "customers");
@@ -83,7 +84,10 @@ export default function SaleForm() {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4 rounded-3">
-                    <h1 className="text-center mb-3">Record a Sale</h1>
+                    <div className="d-flex mb-3 align-items-center justify-content-center">
+                        <h1>Record a Sale</h1>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5044/5044215.png" className="ms-2" style={{ width: "35px" }} />
+                    </div>
                     <form onSubmit={handleSubmit}>
                         <div className="form-floating mb-3">
                             <select value={automobile} onChange={handleAutoChange} required name="automobile" id="automobile" className="form-select">

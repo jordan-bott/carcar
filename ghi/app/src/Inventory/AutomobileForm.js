@@ -57,7 +57,7 @@ export default function AddAutoForm() {
             setYear('');
             setVin('');
             setModelId('');
-            navigate('/inventory/automobile')
+            navigate('/inventory/automobile');
         }
     }
 

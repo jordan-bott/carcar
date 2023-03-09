@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import SalesFilteredList from './SalesFilteredList';
+import useFetch from '../useFetch';
 
-export default function SalesPersonHistory({ sales, salesPeople, autos }) {
+export default function SalesPersonHistory() {
     const [salesPerson, setSalesPerson] = useState("Filter by sales person");
+    const salesPeople = useFetch("http://localhost:8090/api/salespeople/", "sales_people");
+    const sales = useFetch("http://localhost:8090/api/sales/", "sales");
 
     const handleSalesPersonChange = (event) => {
         setSalesPerson(event.target.value);
@@ -11,7 +14,10 @@ export default function SalesPersonHistory({ sales, salesPeople, autos }) {
     return (
         <>
             <div className="mt-4 row">
-                <h1 className="text-center">Sales Person History</h1>
+                <div className="d-flex align-items-center justify-content-center">
+                    <h1>Sales Person History</h1>
+                    <img src="https://cdn-icons-png.flaticon.com/512/5044/5044229.png" className="ms-2" style={{ width: "40px" }} />
+                </div>
                 <div className="d-inline-flex my-3 justify-content-end">
                     <div>
                         <select
@@ -28,7 +34,7 @@ export default function SalesPersonHistory({ sales, salesPeople, autos }) {
                         </select>
                     </div>
                 </div>
-                <SalesFilteredList sales={sales} salesPerson={salesPerson} autos={autos} />
+                <SalesFilteredList sales={sales} salesPerson={salesPerson} />
             </div>
         </>
     )

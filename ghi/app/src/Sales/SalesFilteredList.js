@@ -1,7 +1,8 @@
 import React from 'react';
+import useFetch from '../useFetch';
 
 export default function SalesFilteredList({ sales, salesPerson }) {
-  const filteredSales = sales.filter((sale) => {
+  const filteredSales = [...sales].reverse().filter((sale) => {
     if (sale.sales_person.employee_number === parseInt(salesPerson)) {
       return sale;
     } else if (salesPerson === "Filter by sales person") {
