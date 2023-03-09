@@ -4,6 +4,7 @@ from django.views.decorators.http import require_http_methods
 from .models import Technician, ServiceAppointment, AutomobileVO
 import json
 from django.http import JsonResponse
+from datetime import time
 
 class TechnicianEncoder(ModelEncoder):
     model = Technician

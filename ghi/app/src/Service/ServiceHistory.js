@@ -15,17 +15,15 @@ function ListServiceHistory() {
 
 
         const listUrl = `http://localhost:8080/api/services/${vin}/`
-        console.log(listUrl)
         const fetchList = await fetch(listUrl)
 
         if (fetchList.ok) {
             const appointmentData = await fetchList.json()
-            console.log(appointmentData)
             setAppointments(appointmentData.services)
 
         }
     }
-    console.log(appointments)
+
 
 
 
@@ -47,11 +45,12 @@ function ListServiceHistory() {
                 </thead>
                 <tbody>
                     {appointments && appointments.map(appointment => {
+                        const date = new Date(appointment.appointment_date)
                         return (
                             <tr className={appointment.status === "CANCELED" ? "bg-danger-subtle" : appointment.status === "FINISHED" ? "bg-success-subtle" : null} key={appointment.id}>
                                 <td>{appointment.vin}</td>
                                 <td>{appointment.auto_owner}</td>
-                                <td>{appointment.appointment_date}</td>
+                                <td>{date.toDateString()}</td>
                                 <td>{appointment.appointment_time}</td>
                                 <td>{appointment.technician.name}</td>
                                 <td>{appointment.service_reason}</td>

@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 function AddServiceAppointment() {
 
@@ -9,6 +12,7 @@ function AddServiceAppointment() {
     const [technician, setTechnician] = useState('');
     const [serviceReason, setServiceReason] = useState('');
     const [technicians, setTechnicians] = useState([]);
+    const navigate = useNavigate();
 
 
     const handleVinChange = (event) => {
@@ -66,7 +70,10 @@ function AddServiceAppointment() {
         const response = await fetch(appointmentUrl, fetchConfig);
 
         if (response.ok) {
-            const addServiceAppointment = await response.json();
+            const appointment = await response.json();
+            const date = new Date(appointment.appointment_date)
+            toast(`🗓️ You've made a new appointment for ${appointment.auto_owner} on ${date.toDateString()} at ${appointment.appointment_time}`)
+
 
             setVin('');
             setAutoOwner('');
@@ -74,6 +81,7 @@ function AddServiceAppointment() {
             setAppointmentTime('');
             setTechnician('');
             setServiceReason('');
+            navigate("/service/appointments/")
 
         }
 
@@ -99,7 +107,10 @@ function AddServiceAppointment() {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
-                    <h1>Create a new Service Appointment</h1>
+                    <div className="d-flex mb-3 align-items-center justify-content-center">
+                        <h1 className="text-center">Create a Service Appointment</h1>
+                        <img src="https://img.icons8.com/stickers/75/null/tear-off-calendar.png" className="ms-2" />
+                    </div>
                     <form onSubmit={handleSubmit} id="create-service-appointment-form">
                         <div className="form-floating mb-3">
                             <input onChange={handleVinChange} value={vin} placeholder="VIN" required type="text" name="vin" id="vin" className="form-control" />
@@ -123,14 +134,14 @@ function AddServiceAppointment() {
                         </div>
                         <div className="mb-3">
                             <select onChange={handleTechnicianChange} value={technician} required name="technician" id="technician" className="form-select">
-                            <option value="">Choose a Technician</option>
-                            {technicians.map(technician => {
-                                return (
-                                    <option key={technician.id} value={technician.employee_number}>
-                                        {technician.name} - {technician.employee_number}
-                                    </option>
-                                )
-                            })}
+                                <option value="">Choose a Technician</option>
+                                {technicians.map(technician => {
+                                    return (
+                                        <option key={technician.id} value={technician.employee_number}>
+                                            {technician.name} - {technician.employee_number}
+                                        </option>
+                                    )
+                                })}
                             </select>
                         </div>
                         <button className="btn btn-primary">Create</button>
