@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function CustomerForm() {
     const [name, setName] = useState("");
     const [street, setStreet] = useState("");
-    const [apartment, setApartment] = useState(null);
+    const [apartment, setApartment] = useState("");
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
     const [zipCode, setZipCode] = useState("");
@@ -71,13 +71,12 @@ export default function CustomerForm() {
                 setState("");
                 setZipCode("");
                 setPhoneNumber("");
-                toast(`🤸🏾 ${newCustomer.name} was successfully added as a customer!`)
+                toast(`🤸🏾 ${newCustomer.name} was successfully added as a customer!`);
             }
         } catch (e) {
             toast.error(e);
         }
     }
-
 
     return (
         <div className="row">

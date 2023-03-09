@@ -21,7 +21,7 @@ class Customer(models.Model):
 
     @property
     def address(self):
-        if self.apartment == None:
+        if self.apartment == None or self.apartment == "":
             return f"{self.street}, {self.city}, {self.state} {self.zip_code}"
         return (
             f"{self.street} {self.apartment}, {self.city}, {self.state} {self.zip_code}"

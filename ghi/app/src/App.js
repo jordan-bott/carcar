@@ -21,61 +21,50 @@ import AddTechnicianForm from './Service/TechnicianForm';
 
 
 
-function App(props) {
-    if (
-        props.automobiles === undefined ||
-        props.manufacturers === undefined ||
-        props.vehicleModels === undefined ||
-        props.sales === undefined ||
-        props.customers === undefined ||
-        props.salesPeople === undefined ||
-        props.appointments === undefined
-    ) {
-        return null;
-    }
+function App() {
 
-    return (
-        <BrowserRouter>
-            <Nav />
-            <div className="container">
-                <Routes>
-                    <Route path="/" element={<MainPage />} />
-                    <Route path="inventory">
-                        <Route path="manufacturers">
-                            <Route path="" element={<ManufacturerList />} />
-                            <Route path="new" element={<ManufacturerForm />} />
-                        </Route>
-                        <Route path="models">
-                            <Route path="" element={<VehicleModelList />} />
-                            <Route path="new" element={<VehicleModelForm />} />
-                        </Route>
-                        <Route path="automobile">
-                            <Route path="" element={<AutomobileList />} />
-                            <Route path="new" element={<AddAutoForm />} />
-                        </Route>
-                    </Route>
-                    <Route path="sales">
-                        <Route path="" element={<SaleList />} />
-                        <Route path="new" element={<SaleForm />} />
-                        <Route path="customers/new" element={<CustomerForm />} />
-                        <Route path="salesperson">
-                            <Route path="new" element={<SalesPersonForm />} />
-                            <Route path="history" element={<SalesPersonHistory />} />
-                        </Route>
-                    </Route>
-                    <Route path="service">
-                        <Route path="technicians/new" element={<AddTechnicianForm />} />
-                        <Route path="appointments">
-                            <Route path="" element={<ListServiceAppointments />} />
-                            <Route path="new" element={<AddServiceAppointment />} />
-                        </Route>
-                        <Route path="history" element={<ListServiceHistory />} />
-                    </Route>
-                </Routes>
-                <ToastContainer />
-            </div>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <Nav />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="inventory">
+            <Route path="manufacturers">
+              <Route path="" element={<ManufacturerList />} />
+              <Route path="new" element={<ManufacturerForm />} />
+            </Route>
+            <Route path="models">
+              <Route path="" element={<VehicleModelList />} />
+              <Route path="new" element={<VehicleModelForm />} />
+            </Route>
+            <Route path="automobile">
+              <Route path="" element={<AutomobileList />} />
+              <Route path="new" element={<AddAutoForm />} />
+            </Route>
+          </Route>
+          <Route path="sales">
+            <Route path="" element={<SaleList />} />
+            <Route path="new" element={<SaleForm />} />
+            <Route path="customers/new" element={<CustomerForm />} />
+            <Route path="salesperson">
+              <Route path="new" element={<SalesPersonForm />} />
+              <Route path="history" element={<SalesPersonHistory />} />
+            </Route>
+          </Route>
+          <Route path="service">
+            <Route path="technicians/new" element={<AddTechnicianForm />} />
+            <Route path="appointments">
+              <Route path="" element={<ListServiceAppointments />} />
+              <Route path="new" element={<AddServiceAppointment />} />
+            </Route>
+            <Route path="history" element={<ListServiceHistory />} />
+          </Route>
+        </Routes>
+        <ToastContainer />
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;

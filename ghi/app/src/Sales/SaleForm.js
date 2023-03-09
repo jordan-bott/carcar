@@ -13,7 +13,7 @@ export default function SaleForm() {
     const [isLoading, setIsLoading] = useState(false);
 
     const autos = useFetch("http://localhost:8100/api/automobiles/", "autos");
-    const salesPeople = useFetch("http://localhost:8090/api/salespeople/", "sales_people");
+    const salesPeople = useFetch("http://localhost:8090/api/sales-people/", "sales_people");
     const customers = useFetch("http://localhost:8090/api/customers/", "customers");
 
     const handleAutoChange = (event) => {

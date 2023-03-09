@@ -4,7 +4,7 @@ import useFetch from '../useFetch';
 
 export default function SalesPersonHistory() {
     const [salesPerson, setSalesPerson] = useState("Filter by sales person");
-    const salesPeople = useFetch("http://localhost:8090/api/salespeople/", "sales_people");
+    const salesPeople = useFetch("http://localhost:8090/api/sales-people/", "sales_people");
     const sales = useFetch("http://localhost:8090/api/sales/", "sales");
 
     const handleSalesPersonChange = (event) => {
