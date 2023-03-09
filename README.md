@@ -123,22 +123,94 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 
 
 #### Vehicle Model
-| Method | URL | Action | View | Example Input | Example Output |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| GET |  |  |  |  |
-| POST |  | | |  |
-| GET |  |  |  |
-| PUT |  | |  |
-| DELETE |  |  |  |
+| Method | URL | Action | View |
+| ------ | ------ | ------ | ------ |
+| GET | `http://localhost:8100/api/models/` | List all vehicle models | `api_vehicle_models` |
+| POST | `http://localhost:8100/api/models/` | Create a vehicle model | `api_vehicle_models` |
+| GET | `http://localhost:8100/api/models/<id>/` | Show a vehicle model's details | `api_vehicle_model` |
+| PUT | `http://localhost:8100/api/models/<id>/` | Update a vehicle model | `api_vehicle_model` |
+| DELETE | `http://localhost:8100/api/models/<id>/` | Delete a vehicle model | `api_vehicle_model` |
 
-#### Manufacturer
-| Method | URL | Action | View | Example Input | Example Output |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| GET |  |  |  |  |
-| POST |  | | |  |
-| GET |  |  |  |
-| PUT |  | |  |
-| DELETE |  |  |  |
+<details>
+<summary><strong>Example GET Outputs</strong></summary>
+
+##### List all vehicle models:
+```
+
+```
+##### Show a vehicle model's details:
+```
+
+```
+</details>
+
+<details>
+<summary><strong>Example POST and PUT Input and Output</strong></summary>
+
+##### Input:
+```
+
+```
+
+##### Output:
+```
+
+```
+
+</details>
+
+<details><summary><strong>Example DELETE Output</strong></summary>
+<br>
+
+```
+
+```
+</details>
+
+#### Automobile
+| Method | URL | Action | View |
+| ------ | ------ | ------ | ------ |
+| GET | `http://localhost:8100/api/manufacturers/` | List all manufacturers | `api_manufacturers` |
+| POST | `http://localhost:8100/api/manufacturers/` | Create a manufacturer | `api_manufacturers` |
+| GET | `http://localhost:8100/api/manufacturers/<id>/` | Show a manufacturer's details | `api_manufacturer` |
+| PUT | `http://localhost:8100/api/manufacturers/<id>/` | Update a manufacturer | `api_manufacturer` |
+| DELETE | `http://localhost:8100/api/manufacturers/<id>/` | Delete a manufacturer | `api_manufacturer` |
+
+<details>
+<summary><strong>Example GET Outputs</strong></summary>
+
+##### List all vehicle models:
+```
+
+```
+##### Show a vehicle model's details:
+```
+
+```
+</details>
+
+<details>
+<summary><strong>Example POST and PUT Input and Output</strong></summary>
+
+##### Input:
+```
+
+```
+
+##### Output:
+```
+
+```
+
+</details>
+
+<details><summary><strong>Example DELETE Output</strong></summary>
+<br>
+
+```
+
+```
+</details>
 
 ### Models
 `Manufacturer`
