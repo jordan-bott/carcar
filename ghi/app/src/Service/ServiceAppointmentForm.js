@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddServiceAppointment() {
 
@@ -66,7 +68,10 @@ function AddServiceAppointment() {
         const response = await fetch(appointmentUrl, fetchConfig);
 
         if (response.ok) {
-            const addServiceAppointment = await response.json();
+            const appointment = await response.json();
+            const date = new Date(appointment.appointment_date)
+            toast(`You've made a new appointment for ${appointment.auto_owner} on ${date.toDateString()} at ${appointment.appointment_time}`)
+
 
             setVin('');
             setAutoOwner('');
@@ -123,14 +128,14 @@ function AddServiceAppointment() {
                         </div>
                         <div className="mb-3">
                             <select onChange={handleTechnicianChange} value={technician} required name="technician" id="technician" className="form-select">
-                            <option value="">Choose a Technician</option>
-                            {technicians.map(technician => {
-                                return (
-                                    <option key={technician.id} value={technician.employee_number}>
-                                        {technician.name} - {technician.employee_number}
-                                    </option>
-                                )
-                            })}
+                                <option value="">Choose a Technician</option>
+                                {technicians.map(technician => {
+                                    return (
+                                        <option key={technician.id} value={technician.employee_number}>
+                                            {technician.name} - {technician.employee_number}
+                                        </option>
+                                    )
+                                })}
                             </select>
                         </div>
                         <button className="btn btn-primary">Create</button>

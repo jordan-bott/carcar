@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function CustomerForm() {
     const [name, setName] = useState("");
     const [street, setStreet] = useState("");
-    const [apartment, setApartment] = useState(null);
+    const [apartment, setApartment] = useState("");
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
     const [zipCode, setZipCode] = useState("");

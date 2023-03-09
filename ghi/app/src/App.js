@@ -21,18 +21,7 @@ import AddTechnicianForm from './Service/TechnicianForm';
 
 
 
-function App(props) {
-    if (
-        props.automobiles === undefined ||
-        props.manufacturers === undefined ||
-        props.vehicleModels === undefined ||
-        props.sales === undefined ||
-        props.customers === undefined ||
-        props.salesPeople === undefined ||
-        props.appointments === undefined
-    ) {
-        return null;
-    }
+function App() {
 
     return (
         <BrowserRouter>
