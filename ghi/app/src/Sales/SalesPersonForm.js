@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function SalesPersonForm() {
     const [name, setName] = useState("");
@@ -30,9 +32,15 @@ export default function SalesPersonForm() {
         }
 
         const response = await fetch(url, fetchConfig)
-        if (response.ok) {
-            setName("");
-            setEmployeeNumber("");
+        try {
+            if (response.ok) {
+                const newSalesPerson = await response.json();
+                setName("");
+                setEmployeeNumber("");
+                toast(`🧑🏽‍💼 ${newSalesPerson.name} was successfully added as a sales person!`);
+            }
+        } catch (e) {
+            toast.error(e);
         }
     }
 

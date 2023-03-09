@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+
 import MainPage from './MainPage';
 import Nav from './Nav';
 import AddAutoForm from './Inventory/AutomobileForm';
@@ -52,12 +54,12 @@ function App(props) {
             </Route>
           </Route>
           <Route path="sales">
-            <Route path="" element={<SaleList sales={props.sales} />} />
-            <Route path="new" element={<SaleForm autos={props.automobiles} />} />
+            <Route path="" element={<SaleList />} />
+            <Route path="new" element={<SaleForm />} />
             <Route path="customers/new" element={<CustomerForm />} />
             <Route path="salesperson">
               <Route path="new" element={<SalesPersonForm />} />
-              <Route path="history" element={<SalesPersonHistory sales={props.sales} salesPeople={props.salesPeople} autos={props.automobiles} />} />
+              <Route path="history" element={<SalesPersonHistory />} />
             </Route>
           </Route>
           <Route path="service">
@@ -69,6 +71,7 @@ function App(props) {
             <Route path="history" element={<ListServiceHistory />} />
           </Route>
         </Routes>
+        <ToastContainer />
       </div>
     </BrowserRouter>
   );

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import useFetch from '../useFetch';
 
 export default function SaleForm() {
@@ -50,23 +52,33 @@ export default function SaleForm() {
         }
         const response = await fetch(url, fetchConfig);
         setIsLoading(true);
-
-        if (response.ok) {
-            const newSale = await response.json();
-            setCarSales(oldSales => [...oldSales, newSale])
-            setAutomobile("");
-            setSalesPerson("");
-            setCustomer("");
-            setPrice("");
-            setIsLoading(false);
+        try {
+            if (response.ok) {
+                const newSale = await response.json();
+                setCarSales(oldSales => [...oldSales, newSale])
+                setAutomobile("");
+                setSalesPerson("");
+                setCustomer("");
+                setPrice("");
+                setIsLoading(false);
+                toast(`💸 ${newSale.sales_person.name} sold a car to ${newSale.customer.name}!`);
+            }
+        } catch (e) {
+            toast.error(e);
         }
     }
 
     const fetchSales = async () => {
         const response = await fetch("http://localhost:8090/api/sales/");
-        if (response.ok) {
-            const data = await response.json();
-            setCarSales(data.sales);
+        try {
+            if (response.ok) {
+                const data = await response.json();
+                setCarSales(data.sales);
+            } else {
+                throw new Error("Response not ok");
+            }
+        } catch (e) {
+            toast.error(e);
         }
     }
 

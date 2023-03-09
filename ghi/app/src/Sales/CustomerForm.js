@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CustomerForm() {
     const [name, setName] = useState("");
@@ -59,16 +61,21 @@ export default function CustomerForm() {
             }
         }
         const response = await fetch(url, fetchConfig);
-        if (response.ok) {
-            setName("");
-            setStreet("");
-            setApartment("");
-            setCity("");
-            setState("");
-            setZipCode("");
-            setPhoneNumber("");
+        try {
+            if (response.ok) {
+                const newCustomer = await response.json();
+                setName("");
+                setStreet("");
+                setApartment("");
+                setCity("");
+                setState("");
+                setZipCode("");
+                setPhoneNumber("");
+                toast(`🤸🏾 ${newCustomer.name} was successfully added as a customer!`)
+            }
+        } catch (e) {
+            toast.error(e);
         }
-
     }
 
 
