@@ -1,0 +1,985 @@
+_type: export
+__export_format: 4
+__export_date: 2023-03-09T22:42:53.678Z
+__export_source: insomnia.desktop.app:v2022.7.5
+resources:
+  - _id: req_dbddded482b54c2396900229e8f3241f
+    parentId: fld_ffcb974f4b6e4879991c71f7943d983e
+    modified: 1678149446577
+    created: 1678149166841
+    url: http://localhost:8100/api/manufacturers/
+    name: List Manufacturers
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678149389265.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_ffcb974f4b6e4879991c71f7943d983e
+    parentId: fld_d432d6b5426f4710bf472ff2a7367103
+    modified: 1678149165005
+    created: 1678149165005
+    name: Manufacturer
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678149165005
+    _type: request_group
+  - _id: fld_d432d6b5426f4710bf472ff2a7367103
+    parentId: wrk_61925dfb4a0047fdb39a7582411ce4fd
+    modified: 1678401680809
+    created: 1678149155944
+    name: Inventory
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678308584798
+    _type: request_group
+  - _id: wrk_61925dfb4a0047fdb39a7582411ce4fd
+    parentId: null
+    modified: 1678401715989
+    created: 1678149147736
+    name: Shayne/Jordan CarCar
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_e308afc46fbf4805a52fb1fcbc2fbe2f
+    parentId: fld_ffcb974f4b6e4879991c71f7943d983e
+    modified: 1678149450483
+    created: 1678149342553
+    url: "\thttp://localhost:8100/api/manufacturers/1/"
+    name: Manufacturer Detail
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678149385846.125
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_cdc24f5de28046ce8b5da65f18bf815a
+    parentId: fld_ffcb974f4b6e4879991c71f7943d983e
+    modified: 1678149624568
+    created: 1678149302843
+    url: http://localhost:8100/api/manufacturers/
+    name: Create a Manufacturer
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Chrysler"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678149384136.4375
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_08b168c4b3454d719c3f1354b16b9d14
+    parentId: fld_ffcb974f4b6e4879991c71f7943d983e
+    modified: 1678149629142
+    created: 1678149375588
+    url: "\thttp://localhost:8100/api/manufacturers/1/"
+    name: Update Manufacturer
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Chrysler"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678149383281.5938
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_57cbcbcc0f394f18ac8d21f2f3dbbde7
+    parentId: fld_ffcb974f4b6e4879991c71f7943d983e
+    modified: 1678149448038
+    created: 1678149402943
+    url: http://localhost:8100/api/manufacturers/1/
+    name: Delete Manufacturer
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678149382426.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e02858a697174444825c1ed38a9ad113
+    parentId: fld_2e96fdf6cfa149b5a3967baf44cabd48
+    modified: 1678149525641
+    created: 1678149467008
+    url: http://localhost:8100/api/models/
+    name: List Vehicle Models
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678149389265.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_2e96fdf6cfa149b5a3967baf44cabd48
+    parentId: fld_d432d6b5426f4710bf472ff2a7367103
+    modified: 1678149467007
+    created: 1678149467007
+    name: Vehicle Models
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678149160474.5
+    _type: request_group
+  - _id: req_aae499636d604f9599f6743c04705657
+    parentId: fld_2e96fdf6cfa149b5a3967baf44cabd48
+    modified: 1678149533273
+    created: 1678149467011
+    url: "\thttp://localhost:8100/api/models/1/"
+    name: Vehicle Model Detail
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678149385846.125
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a7ffff101a60437cbbcd65c3b2e6692f
+    parentId: fld_2e96fdf6cfa149b5a3967baf44cabd48
+    modified: 1678149574290
+    created: 1678149467010
+    url: http://localhost:8100/api/models/
+    name: Create a Vehicle Model
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "name": "Sebring",
+          "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+          "manufacturer_id": 1
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678149384136.4375
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_20b29c1bb5ea42f6a1fd53c2929fc4c0
+    parentId: fld_2e96fdf6cfa149b5a3967baf44cabd48
+    modified: 1678149607202
+    created: 1678149467012
+    url: "\thttp://localhost:8100/api/models/1/"
+    name: Update Vehicle Model
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "name": "Sebring",
+          "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+          "manufacturer_id": 1
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678149383281.5938
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f9b3b8ae76344b3f9cc041b8a8eaa6e4
+    parentId: fld_2e96fdf6cfa149b5a3967baf44cabd48
+    modified: 1678149556734
+    created: 1678149467014
+    url: http://localhost:8100/api/models/1/
+    name: Delete Vehicle Model
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678149382426.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f607f91a456849a79ee0a0a9a979480f
+    parentId: fld_9a23c0ffe2f840cbb68e60864714d93c
+    modified: 1678155200433
+    created: 1678149647052
+    url: http://localhost:8100/api/automobiles/
+    name: List Automobiles
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678149389265.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_9a23c0ffe2f840cbb68e60864714d93c
+    parentId: fld_d432d6b5426f4710bf472ff2a7367103
+    modified: 1678149647051
+    created: 1678149647051
+    name: Automobiles
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678149158209.25
+    _type: request_group
+  - _id: req_8dde7954ac3c4f2b95aa503536225ec7
+    parentId: fld_9a23c0ffe2f840cbb68e60864714d93c
+    modified: 1678155210681
+    created: 1678149647055
+    url: "\thttp://localhost:8100/api/automobiles/1/"
+    name: Automobile Detail
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678149385846.125
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_395423991809429dbdaecdcb2d82e38f
+    parentId: fld_9a23c0ffe2f840cbb68e60864714d93c
+    modified: 1678233869697
+    created: 1678149647054
+    url: http://localhost:8100/api/automobiles/
+    name: Create a Automobile
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "color": "red",
+          "year": 2012,
+          "vin": "J098DFASJ90",
+          "model_id": 1
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678149384136.4375
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e2c91a4ebb274df4afaac684c5094a84
+    parentId: fld_9a23c0ffe2f840cbb68e60864714d93c
+    modified: 1678155744082
+    created: 1678149647056
+    url: "\thttp://localhost:8100/api/automobiles/1C3CC5FB2AN120174/"
+    name: Update Automobile
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "color": "Silver",
+          "year": 2012,
+          "vin": "1C3CC5FB2AN120174",
+          "model_id": 1
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678149383281.5938
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_2d2272c883904ab5aa104c8741435ac8
+    parentId: fld_9a23c0ffe2f840cbb68e60864714d93c
+    modified: 1678155228798
+    created: 1678149647057
+    url: http://localhost:8100/api/automobiles/1/
+    name: Delete Automobile
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678149382426.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_3be235113c4b4437b065fae822345437
+    parentId: fld_467bba02e3574826a6a537fddddd8759
+    modified: 1678401573894
+    created: 1678401569330
+    url: http://localhost:8090/api/customers/
+    name: List Customers
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678401569330
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_467bba02e3574826a6a537fddddd8759
+    parentId: fld_95882aba05cd44bcbc9660a07195bd78
+    modified: 1678401552495
+    created: 1678401552495
+    name: Customers
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678401552496
+    _type: request_group
+  - _id: fld_95882aba05cd44bcbc9660a07195bd78
+    parentId: wrk_61925dfb4a0047fdb39a7582411ce4fd
+    modified: 1678401681636
+    created: 1678400706681
+    name: Sales
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678262523856.5
+    _type: request_group
+  - _id: req_8084a6c4ddf64e7ca6ddebf55186a51e
+    parentId: fld_467bba02e3574826a6a537fddddd8759
+    modified: 1678401650808
+    created: 1678401577450
+    url: http://localhost:8090/api/customers/
+    name: Create a Customer
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Chita Buac",
+        	"street": "15918 Paseo Del Campo",
+        	"city": "San Lorenzo", 
+        	"state": "CA" ,
+        	"zip_code": 94580,
+        	"phone_number": "510-220-0082"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678401569280
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8a8c69a0c5e64dd992abe08e2be405de
+    parentId: fld_467bba02e3574826a6a537fddddd8759
+    modified: 1678401612577
+    created: 1678401594395
+    url: http://localhost:8090/api/customers/1/
+    name: Show Customer Details
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678401569230
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c2a023fcc9b84c1fabd0579bfb8545c1
+    parentId: fld_467bba02e3574826a6a537fddddd8759
+    modified: 1678401629707
+    created: 1678401615337
+    url: http://localhost:8090/api/customers/1/
+    name: Delete a Customer
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678401569180
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_1e35fb24e97d4524a11dd67d861bb1a7
+    parentId: fld_2893c70f56084e3391a00f7cad0ce842
+    modified: 1678401472548
+    created: 1678401417341
+    url: http://localhost:8090/api/sales/
+    name: List Sales
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678401425921.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_2893c70f56084e3391a00f7cad0ce842
+    parentId: fld_95882aba05cd44bcbc9660a07195bd78
+    modified: 1678401399018
+    created: 1678401399018
+    name: Sales
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678401399018
+    _type: request_group
+  - _id: req_0ff5757942c6433291af6d34cd9f8e2e
+    parentId: fld_2893c70f56084e3391a00f7cad0ce842
+    modified: 1678401473392
+    created: 1678401434502
+    url: http://localhost:8090/api/sales/
+    name: Create a Sale
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"price": 20000,
+        	"automobile": "F789SD0F7S89",
+        	"sales_person": 912944225,
+        	"customer": 1
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678401421606.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_99425f5a300d45dd8e66330df353cb8d
+    parentId: fld_2893c70f56084e3391a00f7cad0ce842
+    modified: 1678401488658
+    created: 1678401467172
+    url: http://localhost:8090/api/sales/1/
+    name: Show Sale Details
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678401417291
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_04adfc1ad4514be89b6ad22e21560c9d
+    parentId: fld_2893c70f56084e3391a00f7cad0ce842
+    modified: 1678401530650
+    created: 1678401519884
+    url: http://localhost:8090/api/sales/1/
+    name: Delete a Sale
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678401417241
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8598f5a979d1427fb1b028ab5ff22aba
+    parentId: fld_8f222994ea234b908dd14e9d79b1dadc
+    modified: 1678401388845
+    created: 1678401356095
+    url: http://localhost:8090/api/sales-people/
+    name: List Sales People
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678401356095
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_8f222994ea234b908dd14e9d79b1dadc
+    parentId: fld_95882aba05cd44bcbc9660a07195bd78
+    modified: 1678401344831
+    created: 1678401344831
+    name: Sales Person
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678401344831
+    _type: request_group
+  - _id: req_7e44a3081fb540a68a7f5495c6ecc265
+    parentId: fld_8f222994ea234b908dd14e9d79b1dadc
+    modified: 1678401361372
+    created: 1678400708973
+    url: http://localhost:8090/api/sales-people/
+    name: Create a Sales Person
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Shayne Buac",
+        	"employee_number": 912944225
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678401356070
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_2872eca010a0448e8e31eae8fe78af62
+    parentId: fld_8f222994ea234b908dd14e9d79b1dadc
+    modified: 1678401362613
+    created: 1678401207269
+    url: http://localhost:8090/api/sales-people/1/
+    name: Show Sales Person Details
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678401356057.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_95fc4527f0c544f6b5ad94bf868b37c9
+    parentId: fld_8f222994ea234b908dd14e9d79b1dadc
+    modified: 1678401364169
+    created: 1678401321680
+    url: http://localhost:8090/api/sales-people/1/
+    name: Delete Sales Person
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678401356051.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6f4c72faf5ec4a4cb6e50ed3970c7da2
+    parentId: fld_42cf40de1aaa4d0d9b4bc86e3aeed005
+    modified: 1678400800802
+    created: 1678216464553
+    url: http://localhost:8080/api/services/upcoming/
+    name: List Upcoming Services
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678216464553
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_42cf40de1aaa4d0d9b4bc86e3aeed005
+    parentId: fld_c95f9d073d394a1788d3014ccc7090c8
+    modified: 1678400770907
+    created: 1678400770907
+    name: Appointments
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678400770907
+    _type: request_group
+  - _id: fld_c95f9d073d394a1788d3014ccc7090c8
+    parentId: wrk_61925dfb4a0047fdb39a7582411ce4fd
+    modified: 1678216462915
+    created: 1678216462915
+    name: Service
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678216462915
+    _type: request_group
+  - _id: req_11e3160adac4455183249ec2d65c5a40
+    parentId: fld_42cf40de1aaa4d0d9b4bc86e3aeed005
+    modified: 1678400825160
+    created: 1678220053631
+    url: http://localhost:8080/api/services/all/
+    name: List All Services
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678216464540.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_dfe18329eb024f0bb2d87ea78fc66aca
+    parentId: fld_42cf40de1aaa4d0d9b4bc86e3aeed005
+    modified: 1678400827870
+    created: 1678223032471
+    url: http://localhost:8080/api/services/J098DFASJ90/
+    name: List All Services for Vin
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678216464534.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_ed708fcbee0a4bbf9a7b2cfdca407110
+    parentId: fld_42cf40de1aaa4d0d9b4bc86e3aeed005
+    modified: 1678400829592
+    created: 1678220096820
+    url: http://localhost:8080/api/services/all/
+    name: Create Service Appointment
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"vin": "1C3CC5FB2AN120174",
+        	"auto_owner": "Janey",
+        	"appointment_time": "09:30:00",
+        	"appointment_date": "2023-09-15",
+        	"technician": "987654321"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678216464531.125
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b6bb5b43b55e4bc2b6c593776a72e104
+    parentId: fld_42cf40de1aaa4d0d9b4bc86e3aeed005
+    modified: 1678400817386
+    created: 1678222059643
+    url: http://localhost:8080/api/services/2/finish/
+    name: Finish Appointment
+    description: ""
+    method: PUT
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678216464528
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_802237241e914460b6c23bea880259bb
+    parentId: fld_42cf40de1aaa4d0d9b4bc86e3aeed005
+    modified: 1678400815478
+    created: 1678222309310
+    url: http://localhost:8080/api/services/1/cancel/
+    name: Cancel Appointment
+    description: ""
+    method: PUT
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678216464503
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6243695bc8d049c39f24bcd01094bb58
+    parentId: fld_466d83bacede4079826ec4541b93ce6b
+    modified: 1678239668239
+    created: 1678223509618
+    url: http://localhost:8080/api/services/tech/list/
+    name: Create Technician
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Danny J",
+        	"employee_number": 7846517
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678223509618
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_466d83bacede4079826ec4541b93ce6b
+    parentId: fld_c95f9d073d394a1788d3014ccc7090c8
+    modified: 1678400848429
+    created: 1678223330490
+    name: Technicians
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678400770857
+    _type: request_group
+  - _id: req_dc5e7a5610fc4327bb2be5e08bd1b589
+    parentId: fld_466d83bacede4079826ec4541b93ce6b
+    modified: 1678233780167
+    created: 1678223332233
+    url: http://localhost:8080/api/services/tech/list/
+    name: List Technicians
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678223332233
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_60c1487e78ce463621d721f57eed48eb23d6cc5e
+    parentId: wrk_61925dfb4a0047fdb39a7582411ce4fd
+    modified: 1678149147738
+    created: 1678149147738
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1678149147738
+    _type: environment
+  - _id: jar_60c1487e78ce463621d721f57eed48eb23d6cc5e
+    parentId: wrk_61925dfb4a0047fdb39a7582411ce4fd
+    modified: 1678149147739
+    created: 1678149147739
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_8934b20ed4f74d6ebe821390a43d6288
+    parentId: wrk_61925dfb4a0047fdb39a7582411ce4fd
+    modified: 1678149147736
+    created: 1678149147736
+    fileName: CarCar
+    contents: ""
+    contentType: yaml
+    _type: api_spec
