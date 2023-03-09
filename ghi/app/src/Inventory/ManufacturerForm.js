@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function ManufacturerForm() {
     const [name, setName] = useState("");
+    const navigate = useNavigate();
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -26,6 +28,7 @@ export default function ManufacturerForm() {
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
             setName("");
+            navigate("/inventory/manufacturers");
         }
     }
 
@@ -33,14 +36,16 @@ export default function ManufacturerForm() {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4 rounded-3">
-                    <h1 className="text-center mb-3">Create a manufacturer</h1>
+                    <h1 className="text-center mb-3">Add a Manufacturer</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="form-floating mb-3">
                             <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name"
                                 className="form-control" />
                             <label htmlFor="name">Name</label>
                         </div>
-                        <button className="btn btn-primary">Create</button>
+                        <div className="d-grid col-md-6 mx-auto">
+                            <button className="btn btn-outline-primary">Add Manufacturer</button>
+                        </div>
                     </form>
                 </div>
             </div>

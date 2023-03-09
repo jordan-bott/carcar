@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import useFetch from '../useFetch';
 
-export default function SaleForm({ autos, salesPeople, customers, sales }) {
+export default function SaleForm() {
     const [automobile, setAutomobile] = useState("");
     const [salesPerson, setSalesPerson] = useState("");
     const [customer, setCustomer] = useState("");
     const [price, setPrice] = useState("");
-    const [carSales, setCarSales] = useState(sales);
+    const [carSales, setCarSales] = useState([]);
     const [unsoldCars, setUnsoldCars] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const autos = useFetch("http://localhost:8100/api/automobiles/", "autos");
+    const salesPeople = useFetch("http://localhost:8090/api/salespeople/", "sales_people");
+    const customers = useFetch("http://localhost:8090/api/customers/", "customers");
 
     const handleAutoChange = (event) => {
         setAutomobile(event.target.value);
@@ -57,17 +61,29 @@ export default function SaleForm({ autos, salesPeople, customers, sales }) {
         }
     }
 
+    const fetchSales = async () => {
+        const response = await fetch("http://localhost:8090/api/sales/");
+        if (response.ok) {
+            const data = await response.json();
+            setCarSales(data.sales);
+        }
+    }
+
+    useEffect(() => {
+        fetchSales();
+    }, []);
+
     useEffect(() => {
         const soldCarVins = carSales.map(sale => sale.automobile.vin);
         const unsoldAutos = autos.filter(car => !(soldCarVins.includes(car.vin)));
         setUnsoldCars(unsoldAutos);
-    }, [carSales])
+    }, [carSales]);
 
     return (
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4 rounded-3">
-                    <h1 className="text-center mb-3">Add a Customer</h1>
+                    <h1 className="text-center mb-3">Record a Sale</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="form-floating mb-3">
                             <select value={automobile} onChange={handleAutoChange} required name="automobile" id="automobile" className="form-select">
@@ -112,8 +128,8 @@ export default function SaleForm({ autos, salesPeople, customers, sales }) {
                             <input value={price} onChange={handlePriceChange} placeholder="Price" required type="number" name="price" id="price" className="form-control" />
                             <label htmlFor="price">Sale price</label>
                         </div>
-                        <div className="text-end">
-                            {!isLoading ? <button className="btn btn-outline-success">Create</button> : <button className="btn btn-outline-success">Loading... Press me again in about 10 seconds</button>}
+                        <div className="d-grid col-md-6 mx-auto">
+                            {!isLoading ? <button className="btn btn-outline-primary">Record Sale</button> : <button className="btn btn-outline-primary">Loading... Press me again in about 10 seconds</button>}
                         </div>
                     </form>
                 </div>

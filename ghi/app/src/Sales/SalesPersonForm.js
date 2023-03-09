@@ -50,8 +50,8 @@ export default function SalesPersonForm() {
                             <input value={employeeNumber} onChange={handleEmployeeNumberChange} placeholder="Employee Number" required type="number" name="employee_number" id="employee_number" className="form-control" />
                             <label htmlFor="employee_number">Employee Number</label>
                         </div>
-                        <div className="text-end">
-                            <button className="btn btn-outline-success">Create</button>
+                        <div className="d-grid col-sm-6 mx-auto">
+                            <button className="btn btn-outline-primary">Add Sales Person</button>
                         </div>
                     </form>
                 </div>

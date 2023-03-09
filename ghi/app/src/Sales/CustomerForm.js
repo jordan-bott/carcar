@@ -86,13 +86,13 @@ export default function CustomerForm() {
                             <input value={phoneNumber} onChange={handlePhoneNumberChange} placeholder="Phone Number" required type="tel" name="phone_number" id="phone_number" className="form-control" />
                             <label className="mx-2" htmlFor="phone_number">Phone Number (XXX-XXX-XXXX)</label>
                         </div>
-                        <div className="col-md-9 form-floating">
+                        <div className="col-md-8 form-floating">
                             <input value={street} onChange={handleStreetChange} placeholder="Street Address" required type="text" name="street" id="street" className="form-control" />
                             <label className="mx-2" htmlFor="street">Street Address</label>
                         </div>
-                        <div className="col-md-3 form-floating">
+                        <div className="col-md-4 form-floating">
                             <input value={apartment} onChange={handleApartmentChange} placeholder="Apt/Suite" type="text" name="apartment" id="apartment" className="form-control" />
-                            <label className="mx-1" htmlFor="apartment">Apt/Suite</label>
+                            <label className="mx-1" htmlFor="apartment">Apt/Suite (Optional)</label>
                         </div>
                         <div className="col-md-12 form-floating">
                             <input value={city} onChange={handleCityChange} placeholder="City" required type="text" name="city" id="city" className="form-control" />
@@ -110,8 +110,8 @@ export default function CustomerForm() {
                                 <label htmlFor="zip_code">Zip Code</label>
                             </div>
                         </div>
-                        <div className="col-12 text-end">
-                            <button className="btn btn-outline-success">Create</button>
+                        <div className="d-grid col-md-6 mx-auto">
+                            <button className="btn btn-outline-primary">Add Customer</button>
                         </div>
                     </form>
                 </div>
