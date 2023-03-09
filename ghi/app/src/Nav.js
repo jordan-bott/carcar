@@ -37,10 +37,10 @@ function Nav() {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link to="/inventory/automobile" className="dropdown-item">List automobiles</Link>
+                  <Link to="/inventory/automobiles" className="dropdown-item">List automobiles</Link>
                 </li>
                 <li>
-                  <Link to="/inventory/automobile/new" className="dropdown-item">Add an automobile</Link>
+                  <Link to="/inventory/automobiles/new" className="dropdown-item">Add an automobile</Link>
                 </li>
               </ul>
             </li>

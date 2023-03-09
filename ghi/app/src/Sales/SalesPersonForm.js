@@ -22,7 +22,7 @@ export default function SalesPersonForm() {
             employee_number: employeeNumber,
         }
 
-        const url = "http://localhost:8090/api/salespeople/";
+        const url = "http://localhost:8090/api/sales-people/";
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),

@@ -18,8 +18,7 @@ CarCar is a Web application that is designed to manage an automobile dealership 
 Docker is used to run the application. To use the app, follow the steps for the installation below and refer to each microservice's section.
 
 <details><summary><strong>Diagram</strong></summary>
-**Need to upload image to project-beta folder and add path below to img tag**
-<img src="">
+<img src="/CarCarModel.png">
 </details>
 
 ## Installation
@@ -136,11 +135,57 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 
 ##### List all vehicle models:
 ```
-
+{
+	"models": [
+		{
+			"href": "/api/models/2/",
+			"id": 2,
+			"name": "Camry",
+			"picture_url": "https://cdn-ds.com/blogs-media/sites/285/2022/09/14164814/E6-2023-Toyota-Camry_A1_o.jpg",
+			"manufacturer": {
+				"href": "/api/manufacturers/1/",
+				"id": 1,
+				"name": "Toyota"
+			}
+		},
+		{
+			"href": "/api/models/3/",
+			"id": 3,
+			"name": "Civic",
+			"picture_url": "https://images.mktw.net/im-691168?width=1280&size=1.33333333",
+			"manufacturer": {
+				"href": "/api/manufacturers/2/",
+				"id": 2,
+				"name": "Honda"
+			}
+		},
+		{
+			"href": "/api/models/4/",
+			"id": 4,
+			"name": "Corolla Hybrid",
+			"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+			"manufacturer": {
+				"href": "/api/manufacturers/1/",
+				"id": 1,
+				"name": "Toyota"
+			}
+		}
+	]
+}
 ```
 ##### Show a vehicle model's details:
 ```
-
+{
+	"href": "/api/models/4/",
+	"id": 4,
+	"name": "Corolla Hybrid",
+	"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+	"manufacturer": {
+		"href": "/api/manufacturers/1/",
+		"id": 1,
+		"name": "Toyota"
+	}
+}
 ```
 </details>
 
@@ -149,12 +194,26 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 
 ##### Input:
 ```
-
+{
+	"name": "Corolla Hybrid",
+	"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+	"manufacturer_id": 1
+}
 ```
 
 ##### Output:
 ```
-
+{
+	"href": "/api/models/4/",
+	"id": 4,
+	"name": "Corolla Hybrid",
+	"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+	"manufacturer": {
+		"href": "/api/manufacturers/1/",
+		"id": 1,
+		"name": "Toyota"
+	}
+}
 ```
 
 </details>
@@ -163,29 +222,93 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 <br>
 
 ```
-
+{
+	"id": null,
+	"name": "Corolla Hybrid",
+	"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+	"manufacturer": {
+		"href": "/api/manufacturers/1/",
+		"id": 1,
+		"name": "Toyota"
+	}
+}
 ```
 </details>
 
 #### Automobile
 | Method | URL | Action | View |
 | ------ | ------ | ------ | ------ |
-| GET | `http://localhost:8100/api/manufacturers/` | List all manufacturers | `api_manufacturers` |
-| POST | `http://localhost:8100/api/manufacturers/` | Create a manufacturer | `api_manufacturers` |
-| GET | `http://localhost:8100/api/manufacturers/<id>/` | Show a manufacturer's details | `api_manufacturer` |
-| PUT | `http://localhost:8100/api/manufacturers/<id>/` | Update a manufacturer | `api_manufacturer` |
-| DELETE | `http://localhost:8100/api/manufacturers/<id>/` | Delete a manufacturer | `api_manufacturer` |
+| GET | `http://localhost:8100/api/automobiles/` | List all automobiles | `api_automobiles` |
+| POST | `http://localhost:8100/api/automobiles/` | Create an automobile | `api_automobiles` |
+| GET | `http://localhost:8100/api/automobiles/<vin>/` | Show an automobile's details | `api_automobile` |
+| PUT | `http://localhost:8100/api/automobiles/<vin>/` | Update an automobile | `api_automobile` |
+| DELETE | `http://localhost:8100/api/automobiles/<vin>/` | Delete an automobile | `api_automobile` |
 
 <details>
 <summary><strong>Example GET Outputs</strong></summary>
 
 ##### List all vehicle models:
 ```
-
+{
+	"autos": [
+		{
+			"href": "/api/automobiles/F789SD0F7S89/",
+			"id": 2,
+			"color": "Celestite",
+			"year": 2020,
+			"vin": "F789SD0F7S89",
+			"model": {
+				"href": "/api/models/4/",
+				"id": 4,
+				"name": "Corolla Hybrid",
+				"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+				"manufacturer": {
+					"href": "/api/manufacturers/1/",
+					"id": 1,
+					"name": "Toyota"
+				}
+			}
+		},
+		{
+			"href": "/api/automobiles/7890F7S89FSFA/",
+			"id": 1,
+			"color": "Silver",
+			"year": 2022,
+			"vin": "7890F7S89FSFA",
+			"model": {
+				"href": "/api/models/4/",
+				"id": 4,
+				"name": "Corolla Hybrid",
+				"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+				"manufacturer": {
+					"href": "/api/manufacturers/1/",
+					"id": 1,
+					"name": "Toyota"
+				}
+			}
+		}
+	]
 ```
 ##### Show a vehicle model's details:
 ```
-
+{
+	"href": "/api/automobiles/F789SD0F7S89/",
+	"id": 1,
+	"color": "Celestite",
+	"year": 2020,
+	"vin": "F789SD0F7S89",
+	"model": {
+		"href": "/api/models/4/",
+		"id": 4,
+		"name": "Corolla Hybrid",
+		"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+		"manufacturer": {
+			"href": "/api/manufacturers/1/",
+			"id": 1,
+			"name": "Toyota"
+		}
+	}
+}
 ```
 </details>
 
@@ -194,12 +317,34 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 
 ##### Input:
 ```
-
+{
+	"color": "Celestite",
+	"year": "2020",
+	"vin": "F789SD0F7S89",
+	"model_id": 1
+}
 ```
 
 ##### Output:
 ```
-
+{
+	"href": "/api/automobiles/F789SD0F7S89/",
+	"id": 1,
+	"color": "Celestite",
+	"year": "2020",
+	"vin": "F789SD0F7S89",
+	"model": {
+		"href": "/api/models/4/",
+		"id": 4,
+		"name": "Corolla Hybrid",
+		"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+		"manufacturer": {
+			"href": "/api/manufacturers/1/",
+			"id": 1,
+			"name": "Toyota"
+		}
+	}
+}
 ```
 
 </details>

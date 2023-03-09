@@ -71,13 +71,12 @@ export default function CustomerForm() {
                 setState("");
                 setZipCode("");
                 setPhoneNumber("");
-                toast(`🤸🏾 ${newCustomer.name} was successfully added as a customer!`)
+                toast(`🤸🏾 ${newCustomer.name} was successfully added as a customer!`);
             }
         } catch (e) {
             toast.error(e);
         }
     }
-
 
     return (
         <div className="row">
