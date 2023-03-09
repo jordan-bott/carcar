@@ -107,7 +107,7 @@ def api_update_appointment(request, id):
 def api_list_service_appointments_by_vin(request, vin):
     services = ServiceAppointment.objects.filter(vin=vin)
     return JsonResponse(
-        services,
+        {"services": services},
         encoder=ServiceAppointmentEncoder,
         safe=False,
     )

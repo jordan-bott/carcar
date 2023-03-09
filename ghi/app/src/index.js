@@ -17,7 +17,7 @@ async function loadData() {
     const salesResponse = await fetch('http://localhost:8090/api/sales/');
     const customerResponse = await fetch('http://localhost:8090/api/customers/');
     const salesPersonResponse = await fetch('http://localhost:8090/api/salespeople/');
-    const appointmentResponse = await fetch('http://localhost:8080/api/services/upcoming/');
+    // const appointmentResponse = await fetch('http://localhost:8080/api/services/all/');
 
     try {
         if (
@@ -26,8 +26,8 @@ async function loadData() {
             vehicleModelResponse.ok &&
             salesResponse.ok &&
             customerResponse.ok &&
-            salesPersonResponse.ok &&
-            appointmentResponse.ok
+            salesPersonResponse.ok //&&
+            // appointmentResponse.ok
         ) {
 
             const automobile = await automobileResponse.json();
@@ -36,7 +36,7 @@ async function loadData() {
             const sales = await salesResponse.json();
             const customer = await customerResponse.json();
             const salesPerson = await salesPersonResponse.json();
-            const appointment = await appointmentResponse.json();
+            // const appointment = await appointmentResponse.json();
 
             root.render(
                 <React.StrictMode>
@@ -47,7 +47,7 @@ async function loadData() {
                         sales={sales.sales}
                         customers={customer.customers}
                         salesPeople={salesPerson.sales_people}
-                        appointments={appointment.services}
+                    // appointments={appointment.services}
                     />
                 </React.StrictMode>
             );
