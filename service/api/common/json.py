@@ -14,7 +14,7 @@ class DateEncoder(JSONEncoder):
 class TimeEncoder(JSONEncoder):
     def default(self, o):
         if isinstance(o, time):
-            return o.isoformat()
+            return o.strftime("%I:%M %p")
         else:
             return super().default(o)
 
