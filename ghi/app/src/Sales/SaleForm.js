@@ -56,7 +56,7 @@ export default function SaleForm() {
             setIsLoading(true);
             if (response.ok) {
                 const newSale = await response.json();
-                setCarSales(oldSales => [...oldSales, newSale])
+                setCarSales(oldSales => [...oldSales, newSale]);
                 setAutomobile("");
                 setSalesPerson("");
                 setCustomer("");

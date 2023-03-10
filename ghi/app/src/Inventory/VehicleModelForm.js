@@ -8,7 +8,7 @@ export default function VehicleModelForm() {
     const [name, setName] = useState("");
     const [pictureUrl, setPictureUrl] = useState("");
     const [manufacturer, setManufacturer] = useState("");
-    const manufacturers = useFetch("http://localhost:8100/api/manufacturers/", "manufacturers")
+    const manufacturers = useFetch("http://localhost:8100/api/manufacturers/", "manufacturers");
     const navigate = useNavigate();
 
     const handleNameChange = (event) => {
@@ -49,7 +49,7 @@ export default function VehicleModelForm() {
                 setPictureUrl("");
                 setManufacturer("");
                 navigate("/inventory/models");
-                toast(`Successfully added ${newVehicleModel.name} as a vehicle model!`)
+                toast(`Successfully added ${newVehicleModel.name} as a vehicle model!`);
             }
         } catch (e) {
             toast.error(e);

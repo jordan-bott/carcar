@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useFetch from '../useFetch';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -52,8 +52,8 @@ export default function AddAutoForm() {
             }
         };
 
-        const response = await fetch(autoUrl, fetchConfig);
         try {
+            const response = await fetch(autoUrl, fetchConfig);
             if (response.ok) {
                 const newAutomobile = await response.json();
                 setColor('');

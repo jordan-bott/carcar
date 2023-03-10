@@ -1,5 +1,4 @@
 import React from 'react';
-import useFetch from '../useFetch';
 
 export default function SalesFilteredList({ sales, salesPerson }) {
   const filteredSales = [...sales].reverse().filter((sale) => {

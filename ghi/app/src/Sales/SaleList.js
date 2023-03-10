@@ -2,7 +2,7 @@ import React from 'react';
 import useFetch from '../useFetch';
 
 export default function SaleList() {
-    const sales = useFetch("http://localhost:8090/api/sales/", "sales")
+    const sales = useFetch("http://localhost:8090/api/sales/", "sales");
 
     return (
         <div className="mt-4">

@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function SalesPersonForm() {
     const [name, setName] = useState("");
-    const [employeeNumber, setEmployeeNumber] = useState("")
+    const [employeeNumber, setEmployeeNumber] = useState("");
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -32,7 +32,7 @@ export default function SalesPersonForm() {
         }
 
         try {
-            const response = await fetch(url, fetchConfig)
+            const response = await fetch(url, fetchConfig);
             if (response.ok) {
                 const newSalesPerson = await response.json();
                 setName("");

@@ -33,7 +33,7 @@ export default function ManufacturerForm() {
                 const newManufacturer = await response.json();
                 setName("");
                 navigate("/inventory/manufacturers");
-                toast(`Successfully added ${newManufacturer.name} as a manufacturer!`)
+                toast(`Successfully added ${newManufacturer.name} as a manufacturer!`);
             }
         } catch (e) {
             toast.error(e);
