@@ -75,15 +75,15 @@ export default function AddAutoForm() {
                     <h1 className="text-center">Add an Automobile</h1>
                     <form onSubmit={handleSubmit} id="add-auto-form">
                         <div className="form-floating mb-3">
-                            <input onChange={handleColorChange} value={color} placeholder="Color" required type="text" name="color" id="color" className="form-control" />
+                            <input onChange={handleColorChange} value={color} placeholder="Color" required type="text" name="color" id="color" maxlength="50" className="form-control" />
                             <label htmlFor="color">Color</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input onChange={handleYearChange} value={year} placeholder="Year" required type="text" name="year" id="year" className="form-control" />
+                            <input onChange={handleYearChange} value={year} placeholder="Year" required type="number" name="year" min="1" max="32767" id="year" className="form-control" />
                             <label htmlFor="year">Year</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input onChange={handleVinChange} value={vin} placeholder="VIN" type="vin" name="vin" id="vin" className="form-control" />
+                            <input onChange={handleVinChange} value={vin} placeholder="VIN" required type="text" maxlength="17" name="vin" id="vin" className="form-control" />
                             <label htmlFor="vin">VIN</label>
                         </div>
                         <div className="mb-3">
