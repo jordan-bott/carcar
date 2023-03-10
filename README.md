@@ -5,6 +5,8 @@ Team: 1
 * Shayne Buac - Sales microservice
 * Jordan Bott - Service Microservice
 
+<img src="https://media.tenor.com/z_6j0YIJvnEAAAAC/puglie-pug-puglie.gif" width="150">
+
 ## Table of Contents
 - [Design](#design)
 - [Installation](#installation)
@@ -39,6 +41,8 @@ docker-compose up
 ```
 **Note:** When you run `docker-compose up` and if you're on macOS, you will see a warning about an environment variable named OS being missing. **You can safely ignore this.**
 
+<img src="https://media.tenor.com/CUWTHQH990oAAAAC/puglie-pug-puglie.gif" width="150">
+
 4. After Docker is done loading, access the application on your browser (Google Chrome recommended) at http://localhost:3000/
 5. (Optional) To import a complete Insomnia collection for this project, open Insomnia and within Insomnia:
 - Make a new project called CarCar
@@ -62,6 +66,8 @@ This application loads with an empty database. To fully interact with this appli
 6. [Sale](http://localhost:3000/sales/new)
 7. [Technician](http://localhost:3000/service/technicians/new)
 8. [Appointment](http://localhost:3000/service/appointments/new)
+
+<img src="https://media.tenor.com/xtvIwLOM0n8AAAAC/puglie-pug.gif"  width="150">
 
 ## Inventory Microservice
 ### Overview
@@ -366,6 +372,7 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 }
 ```
 </details>
+<img src="https://media.tenor.com/Lxejq274IpwAAAAC/puglie-pug.gif"  width="150">
 
 ### React
 <table>
@@ -418,6 +425,8 @@ The Sales microservice consists of two microservices: **api** and **poll**.
 Api is a Django application with a Django project, `sales_project`, and a Django app, `sales_rest`, where the latter handles create, read, and delete functionality for sales people (`SalesPerson` objects), customers (`Customer` objects), and sales (`Sale` objects) of specific automobiles (`AutomobileVO`) in a dealership's inventory.
 
 Poll is an application that contains a poller that gets `Automobile` data from the Inventory API every 10 seconds and creates or updates an `AutomobileVO` object. Then, the project uses React to render a dynamic single page app using various components, such as `SaleList` and `SaleForm`, that allow the user to interact with the website and add and read sales that are tied to a specific customer, sales person, and automobile which is listed by its VIN.
+
+<img src="https://media.tenor.com/tHGaYiEKgPsAAAAC/puglie-pug.gif" width="150">
 
 ### Models
 
@@ -768,8 +777,7 @@ Poll is an application that contains a poller that gets `Automobile` data from t
 		<tr>
 			<td>List sales by sales person</td>
 			<td>http://localhost:3000/sales/salesperson/history</td>
-			<td>SalesPersonHistory
-				- SalesFilteredList (child of SalesPersonHistory)
+			<td>SalesPersonHistory and SalesFilteredList (child of SalesPersonHistory)
 			</td>
 		</tr>
 	</tbody>
@@ -1033,6 +1041,8 @@ Poll is an application that contains a poller that gets `Automobile` data from t
 ```
 </details>
 
+<img src="https://media.tenor.com/q67kktx_IAUAAAAC/puglie-pug-puglie.gif" width="150">
+
 ### React
 <table>
 	<thead>
@@ -1065,3 +1075,8 @@ Poll is an application that contains a poller that gets `Automobile` data from t
 		</tr>
 	</tbody>
 </table>
+<br>
+
+#### Great job reaching the end! Ok byeee
+<img src="https://media.tenor.com/zupicKOse1oAAAAd/pug-excuse.gif"  width="250">
+<img src="https://media.tenor.com/BjdFdMhTOTwAAAAC/puglie-pug-puglie.gif"  width="250">
