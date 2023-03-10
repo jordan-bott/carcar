@@ -50,7 +50,10 @@ function AddTechnicianForm() {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
-                    <h1>Add a New Technician</h1>
+                    <div className="d-flex mb-3 align-items-center justify-content-center">
+                        <h1 className="align-middle">Add a New Technician</h1>
+                        <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/65/null/external-mechanic-professions-woman-diversity-flaticons-lineal-color-flat-icons.png" className="ms-2" />
+                    </div>
                     <form onSubmit={handleSubmit} id="add-technician-form">
                         <div className="form-floating mb-3">
                             <input onChange={handleNameChange} value={name} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
@@ -64,7 +67,7 @@ function AddTechnicianForm() {
                     </form>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 export default AddTechnicianForm;
