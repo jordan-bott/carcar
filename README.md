@@ -830,6 +830,10 @@ Properties:
 - import_href
 - vin 
 
+**Entities and Value Objects**
+
+Entities: `ServiceAppointment` and `Technician` models
+Value Objects: `AutomobileVO` modle and all properties on the three models. 
 
 ### RESTful API (Port 8080)
 
