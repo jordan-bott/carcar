@@ -27,13 +27,12 @@ def get_automobile_vin():
 
 def poll():
     while True:
-        print('Service poller polling for data')
         try:
             get_automobile_vin()
             pass
         except Exception as e:
             print(e, file=sys.stderr)
-        time.sleep(60)
+        time.sleep(10)
 
 
 if __name__ == "__main__":
