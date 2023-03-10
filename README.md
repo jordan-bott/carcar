@@ -856,8 +856,8 @@ This application is very barebones and it's only functionality is to poll for da
 | GET | `http://localhost:8080/api/services/all/` | List all services | `api_list_all_service_appointments` |
 | GET | `http://localhost:8080/api/services/upcoming/` | List upcoming services | `api_list_upcoming_service_appointments` |
 | GET | `http://localhost:8080/api/services/<vin>/` | List services by VIN | `api_list_service_appointments_by_vin` |
-| PUT | `http://localhost:8080/api/services/1/cancel/` | Cancel appointment | `api_cancel_service_appointment` |
-| PUT | `http://localhost:8080/api/services/2/finish/` | Finish appointment | `api_finish_service_appointment` |
+| PUT | `http://localhost:8080/api/services/<id>/cancel/` | Cancel appointment | `api_cancel_service_appointment` |
+| PUT | `http://localhost:8080/api/services/<id>/finish/` | Finish appointment | `api_finish_service_appointment` |
 
 <details>
 <summary><strong>Example GET Outputs</strong></summary>
