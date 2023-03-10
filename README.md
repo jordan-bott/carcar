@@ -43,7 +43,7 @@ docker volume create beta-data
 docker-compose build
 docker-compose up
 ```
-**Note:** When you run `docker-compose up` and if you're on macOS, you will see a warning about an environment variable named OS being missing. **You can safely ignore this.**
+**macOS users:** When you run `docker-compose up` you may see a warning about an environment variable named OS being missing. Don't worry about it! **You can ignore this.**
 
 <img src="https://media.tenor.com/CUWTHQH990oAAAAC/puglie-pug-puglie.gif" width="200">
 
