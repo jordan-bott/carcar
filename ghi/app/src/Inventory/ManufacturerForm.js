@@ -33,7 +33,7 @@ export default function ManufacturerForm() {
                 const newManufacturer = await response.json();
                 setName("");
                 navigate("/inventory/manufacturers");
-                toast(`Successfully added ${newManufacturer.name} as a manufacturer!`)
+                toast(`Successfully added ${newManufacturer.name} as a manufacturer!`);
             }
         } catch (e) {
             toast.error(e);
@@ -47,7 +47,7 @@ export default function ManufacturerForm() {
                     <h1 className="text-center mb-3">Add a Manufacturer</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="form-floating mb-3">
-                            <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name"
+                            <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" maxlength="100" name="name" id="name"
                                 className="form-control" />
                             <label htmlFor="name">Name</label>
                         </div>

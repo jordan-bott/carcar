@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function SalesPersonForm() {
     const [name, setName] = useState("");
-    const [employeeNumber, setEmployeeNumber] = useState("")
+    const [employeeNumber, setEmployeeNumber] = useState("");
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -32,7 +32,7 @@ export default function SalesPersonForm() {
         }
 
         try {
-            const response = await fetch(url, fetchConfig)
+            const response = await fetch(url, fetchConfig);
             if (response.ok) {
                 const newSalesPerson = await response.json();
                 setName("");
@@ -58,7 +58,7 @@ export default function SalesPersonForm() {
                             <label htmlFor="name">Name</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input value={employeeNumber} onChange={handleEmployeeNumberChange} placeholder="Employee Number" required type="number" name="employee_number" id="employee_number" className="form-control" />
+                            <input value={employeeNumber} onChange={handleEmployeeNumberChange} placeholder="Employee Number" required type="number" min="0" max="2147483647" name="employee_number" id="employee_number" className="form-control" />
                             <label htmlFor="employee_number">Employee Number</label>
                         </div>
                         <div className="d-grid col-sm-6 mx-auto">

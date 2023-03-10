@@ -56,7 +56,7 @@ export default function SaleForm() {
             setIsLoading(true);
             if (response.ok) {
                 const newSale = await response.json();
-                setCarSales(oldSales => [...oldSales, newSale])
+                setCarSales(oldSales => [...oldSales, newSale]);
                 setAutomobile("");
                 setSalesPerson("");
                 setCustomer("");
@@ -142,7 +142,7 @@ export default function SaleForm() {
                             <label htmlFor="customer">Customer</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input value={price} onChange={handlePriceChange} placeholder="Price" required type="number" name="price" id="price" className="form-control" />
+                            <input value={price} onChange={handlePriceChange} placeholder="Price" required type="number" min="1" max="2147483647" name="price" id="price" className="form-control" />
                             <label htmlFor="price">Sale price</label>
                         </div>
                         <div className="d-grid col-md-6 mx-auto">

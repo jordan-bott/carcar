@@ -8,7 +8,7 @@ export default function VehicleModelForm() {
     const [name, setName] = useState("");
     const [pictureUrl, setPictureUrl] = useState("");
     const [manufacturer, setManufacturer] = useState("");
-    const manufacturers = useFetch("http://localhost:8100/api/manufacturers/", "manufacturers")
+    const manufacturers = useFetch("http://localhost:8100/api/manufacturers/", "manufacturers");
     const navigate = useNavigate();
 
     const handleNameChange = (event) => {
@@ -49,7 +49,7 @@ export default function VehicleModelForm() {
                 setPictureUrl("");
                 setManufacturer("");
                 navigate("/inventory/models");
-                toast(`Successfully added ${newVehicleModel.name} as a vehicle model!`)
+                toast(`Successfully added ${newVehicleModel.name} as a vehicle model!`);
             }
         } catch (e) {
             toast.error(e);
@@ -63,12 +63,12 @@ export default function VehicleModelForm() {
                     <h1 className="text-center mb-3">Add a Vehicle Model</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="form-floating mb-3">
-                            <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name"
+                            <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" maxlength="100" name="name" id="name"
                                 className="form-control" />
                             <label htmlFor="name">Name</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input value={pictureUrl} onChange={handlePictureUrlChange} placeholder="Picture URL" required type="url" name="picture_url" id="picture_url" className="form-control" />
+                            <input value={pictureUrl} onChange={handlePictureUrlChange} placeholder="Picture URL" required type="url" name="picture_url" maxlength="200" id="picture_url" className="form-control" />
                             <label htmlFor="picture_url">Picture URL</label>
                         </div>
                         <div className="form-floating mb-3">
