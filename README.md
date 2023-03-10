@@ -15,7 +15,7 @@ Team: 1
 - [Service Microservice](#service-microservice)
 
 ## Design
-CarCar is a Web application that is designed to manage an automobile dealership by tracking the inventory, sales, and service of cars. The application consists of 3 microservices: inventory, sales, and service. These microservices utilize RESTful API in the back-end that is then brought to the user interface on the front-end to dynamically display data and allow user interaction with the application. Both the sales and service microservices have their own Automobile value object (`AutomobileVO`), which is created and updated through their own poll microservice that requests and gets `Automobile` data from the Inventory.
+CarCar is a Web application that is designed to manage an automobile dealership by tracking the inventory, sales, and service of cars. The application consists of 3 microservices: inventory, sales, and service. These microservices utilize RESTful API in the back-end that is then brought to the user interface on the front-end to dynamically display data and allow user interaction with the application. Both the sales and service microservices have their own Automobile value object (`AutomobileVO`), which is created and updated through their own poll application that requests and gets `Automobile` data from the Inventory.
 
 Docker is used to run the application. To use the app, follow the steps for the installation below and refer to each microservice's section as needed.
 
