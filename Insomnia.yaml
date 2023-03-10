@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2023-03-10T00:10:04.302Z
+__export_date: 2023-03-10T02:01:54.053Z
 __export_source: insomnia.desktop.app:v2022.7.5
 resources:
   - _id: req_cdc24f5de28046ce8b5da65f18bf815a
@@ -285,10 +285,10 @@ resources:
     _type: request
   - _id: req_395423991809429dbdaecdcb2d82e38f
     parentId: fld_9a23c0ffe2f840cbb68e60864714d93c
-    modified: 1678403870304
+    modified: 1678413674641
     created: 1678149647054
     url: http://localhost:8100/api/automobiles/
-    name: Create a Automobile
+    name: Create an Automobile
     description: ""
     method: POST
     body:

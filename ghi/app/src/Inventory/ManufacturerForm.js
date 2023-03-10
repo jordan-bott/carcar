@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ManufacturerForm() {
     const [name, setName] = useState("");
@@ -25,10 +27,16 @@ export default function ManufacturerForm() {
             }
         }
 
-        const response = await fetch(url, fetchConfig);
-        if (response.ok) {
-            setName("");
-            navigate("/inventory/manufacturers");
+        try {
+            const response = await fetch(url, fetchConfig);
+            if (response.ok) {
+                const newManufacturer = await response.json();
+                setName("");
+                navigate("/inventory/manufacturers");
+                toast(`Successfully added ${newManufacturer.name} as a manufacturer!`)
+            }
+        } catch (e) {
+            toast.error(e);
         }
     }
 

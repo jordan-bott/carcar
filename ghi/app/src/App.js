@@ -61,7 +61,7 @@ function App() {
             <Route path="history" element={<ListServiceHistory />} />
           </Route>
         </Routes>
-        <ToastContainer />
+        <ToastContainer position="bottom-right" />
       </div>
     </BrowserRouter>
   );

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../useFetch';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function VehicleModelForm() {
     const [name, setName] = useState("");
@@ -39,12 +41,18 @@ export default function VehicleModelForm() {
             }
         }
 
-        const response = await fetch(url, fetchConfig);
-        if (response.ok) {
-            setName("");
-            setPictureUrl("");
-            setManufacturer("");
-            navigate("/inventory/models");
+        try {
+            const response = await fetch(url, fetchConfig);
+            if (response.ok) {
+                const newVehicleModel = await response.json();
+                setName("");
+                setPictureUrl("");
+                setManufacturer("");
+                navigate("/inventory/models");
+                toast(`Successfully added ${newVehicleModel.name} as a vehicle model!`)
+            }
+        } catch (e) {
+            toast.error(e);
         }
     }
 
