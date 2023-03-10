@@ -31,8 +31,8 @@ export default function SalesPersonForm() {
             }
         }
 
-        const response = await fetch(url, fetchConfig)
         try {
+            const response = await fetch(url, fetchConfig)
             if (response.ok) {
                 const newSalesPerson = await response.json();
                 setName("");

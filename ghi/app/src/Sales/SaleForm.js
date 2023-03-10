@@ -50,9 +50,10 @@ export default function SaleForm() {
                 "Content-Type": "application/json",
             }
         }
-        const response = await fetch(url, fetchConfig);
-        setIsLoading(true);
+
         try {
+            const response = await fetch(url, fetchConfig);
+            setIsLoading(true);
             if (response.ok) {
                 const newSale = await response.json();
                 setCarSales(oldSales => [...oldSales, newSale])
@@ -69,8 +70,8 @@ export default function SaleForm() {
     }
 
     const fetchSales = async () => {
-        const response = await fetch("http://localhost:8090/api/sales/");
         try {
+            const response = await fetch("http://localhost:8090/api/sales/");
             if (response.ok) {
                 const data = await response.json();
                 setCarSales(data.sales);

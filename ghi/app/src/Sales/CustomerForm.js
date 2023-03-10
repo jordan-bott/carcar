@@ -60,8 +60,9 @@ export default function CustomerForm() {
                 "Content-Type": "application/json",
             }
         }
-        const response = await fetch(url, fetchConfig);
+
         try {
+            const response = await fetch(url, fetchConfig);
             if (response.ok) {
                 const newCustomer = await response.json();
                 setName("");

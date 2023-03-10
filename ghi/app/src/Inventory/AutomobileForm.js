@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useFetch from '../useFetch';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function AddAutoForm() {
     const [color, setColor] = useState('');
@@ -51,13 +53,18 @@ export default function AddAutoForm() {
         };
 
         const response = await fetch(autoUrl, fetchConfig);
-
-        if (response.ok) {
-            setColor('');
-            setYear('');
-            setVin('');
-            setModelId('');
-            navigate('/inventory/automobile');
+        try {
+            if (response.ok) {
+                const newAutomobile = await response.json();
+                setColor('');
+                setYear('');
+                setVin('');
+                setModelId('');
+                navigate('/inventory/automobiles');
+                toast(`Successfully added a ${newAutomobile.color} ${newAutomobile.year} ${newAutomobile.model.manufacturer.name} ${newAutomobile.model.name} to the inventory!`);
+            }
+        } catch (e) {
+            toast.error(e);
         }
     }
 
