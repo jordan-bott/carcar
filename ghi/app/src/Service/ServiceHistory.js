@@ -30,7 +30,9 @@ function ListServiceHistory() {
 
     return (
         <>
-            <input type="text" id="vininput" name="vininput" maxLength="17" onChange={handleVinChange} value={vin}></input><button onClick={fetchAppointmentList}>Search VIN</button>
+            <div style={{ "align-items": "right", "display": "flex" }}>
+                <input type="text" id="vininput" name="vininput" maxLength="17" onChange={handleVinChange} value={vin}></input><button onClick={fetchAppointmentList}>Search VIN</button>
+            </div>
             <table className="table align-middle">
                 <thead>
                     <tr>

@@ -109,7 +109,7 @@ function AddServiceAppointment() {
                 <div className="shadow p-4 mt-4">
                     <div className="d-flex mb-3 align-items-center justify-content-center">
                         <h1 className="text-center">Create a Service Appointment</h1>
-                        <img src="https://img.icons8.com/stickers/75/null/tear-off-calendar.png" className="ms-2" />
+                        <img src="https://img.icons8.com/stickers/75/null/tear-off-calendar.png" className="align-items-left" />
                     </div>
                     <form onSubmit={handleSubmit} id="create-service-appointment-form">
                         <div className="form-floating mb-3">
