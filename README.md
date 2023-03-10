@@ -24,7 +24,7 @@ Docker is used to run the application. To use the app, follow the steps for the 
 </details>
 
 <details><summary><strong>Route Tree Diagram</strong></summary>
-<img src="">
+<img src="/CarCarRouteTree.png">
 </details>
 
 ## Installation
@@ -790,14 +790,54 @@ Then, the project uses React to render a dynamic single page app using various c
 ## Service Microservice
 ### Overview
 
+The Service Mircoservice contains two applications, api and poll. These two applications share a database. The service microservice is a bounded context that contains all of the CarCar dealership's functionality and data surrounding service appointments and technicians. There is an Automobile value object that is polled by the poller in poll to provide information about cars that have been in the inventory of the dealership at one point. This information is used to determine if the car to be serviced came from the dealership, and thus should receive the VIP treatement. 
+
+**API**
+
+This Django app holds the majority of the backend funcitonality for the Service Microservice. It contains three models: `AutomobileVO`, `ServiceAppointment`, and `Technician`. This app contains the backend functionality for making an appointment, listing scheduled appointments, listing all appointments, listing appointments by VIN, updating the status of appointments to be "finished" or "canceled", adding a technician and listing all technicians.
+
+**Poll**
+
+This application is very barebones and it's only functionality is to poll for data from the Inventory microservice. The poller.py file polls for the `vin` and `href` properties of the `Automobile` model and assigns them to the `import_href` and `vin` properties of `AutomobileVO` model. 
+
+**Models**
+
+`ServiceAppointment` 
+
+This model is representing a service appointment and all of it's details. 
+
+Properties:
+- vin
+- auto_owner
+- appointment_date
+- appointment_time
+- service_reason
+- technician (foreign key to Technician Model)
+
+`Technician` 
+
+This model is representing a technician for use in the scheduling of appointments. Thus, it only includes the technician's name and employee number.
+
+Properties:
+- name
+- employee_number
+
+`AutomobileVO` 
+
+This model is a **value object**. It is used to check the inventory to see if the car being serviced was in the inventory at one time. 
+
+Properties:
+- import_href
+- vin 
+
 
 ### RESTful API (Port 8080)
 
 #### Technician
 | Method | URL | Action | View |
 | ------ | ------ | ------ | ------ |
-| GET | `` | List all  | `` |
-| POST | `` | Create a  | `` |
+| GET | `http://localhost:8080/api/services/tech/list/` | List all  | `api_add_tech` |
+| POST | `http://localhost:8080/api/services/tech/list` | Create a  | `api_add_tech` |
 
 <details>
 <summary><strong>Example GET Output</strong></summary>
@@ -845,12 +885,12 @@ Then, the project uses React to render a dynamic single page app using various c
 #### Appointment
 | Method | URL | Action | View |
 | ------ | ------ | ------ | ------ |
-| POST | `` | Create a service appointment | `` |
-| GET | `` | List upcoming services | `` |
-| GET | `` | List all services | `` |
-| GET | `` | List services by VIN | `` |
-| PUT | `` | Cancel appointment | `` |
-| PUT | `` | Finish appointment | `` |
+| POST | `http://localhost:8080/api/services/all/` | Create a service appointment | `api_list_all_service_appointments` |
+| GET | `http://localhost:8080/api/services/all/` | List all services | `api_list_all_service_appointments` |
+| GET | `http://localhost:8080/api/services/upcoming/` | List upcoming services | `api_list_upcoming_service_appointments` |
+| GET | `http://localhost:8080/api/services/<vin>/` | List services by VIN | `api_list_service_appointments_by_vin` |
+| PUT | `http://localhost:8080/api/services/<id>/cancel/` | Cancel appointment | `api_cancel_service_appointment` |
+| PUT | `http://localhost:8080/api/services/<id>/finish/` | Finish appointment | `api_finish_service_appointment` |
 
 <details>
 <summary><strong>Example GET Outputs</strong></summary>
@@ -1058,23 +1098,23 @@ Then, the project uses React to render a dynamic single page app using various c
 	<tbody>
 		<tr>
 			<td>Add a technician</td>
-			<td></td>
-			<td></td>
+			<td>http://localhost:3000/service/technicians/new</td>
+			<td>AddTechnicianForm</td>
 		</tr>
 		<tr>
 			<td>Make a service appointment</td>
-			<td></td>
-			<td></td>
+			<td>http://localhost:3000/service/appointments/new</td>
+			<td>AddServiceAppointment</td>
 		</tr>
 		<tr>
 			<td>List appointments</td>
-			<td></td>
-			<td></td>
+			<td>http://localhost:3000/service/appointments</td>
+			<td>ListServiceAppointments</td>
 		</tr>
 		<tr>
 			<td>List appointments by VIN</td>
-			<td></td>
-			<td></td>
+			<td>http://localhost:3000/service/history</td>
+			<td>ListServiceHistory</td>
 		</tr>
 	</tbody>
 </table>
