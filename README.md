@@ -5,7 +5,7 @@ Team: 1
 * Shayne Buac - Sales microservice
 * Jordan Bott - Service Microservice
 
-<img src="https://media.tenor.com/z_6j0YIJvnEAAAAC/puglie-pug-puglie.gif" width="150">
+<img src="https://media.tenor.com/z_6j0YIJvnEAAAAC/puglie-pug-puglie.gif" width="200">
 
 ## Table of Contents
 - [Design](#design)
@@ -23,7 +23,7 @@ Docker is used to run the application. To use the app, follow the steps for the 
 <img src="/CarCarModel.png">
 </details>
 
-<details><summary><strong>Route Diagram</strong></summary>
+<details><summary><strong>Route Tree Diagram</strong></summary>
 <img src="">
 </details>
 
@@ -41,7 +41,7 @@ docker-compose up
 ```
 **Note:** When you run `docker-compose up` and if you're on macOS, you will see a warning about an environment variable named OS being missing. **You can safely ignore this.**
 
-<img src="https://media.tenor.com/CUWTHQH990oAAAAC/puglie-pug-puglie.gif" width="150">
+<img src="https://media.tenor.com/CUWTHQH990oAAAAC/puglie-pug-puglie.gif" width="200">
 
 4. After Docker is done loading, access the application on your browser (Google Chrome recommended) at http://localhost:3000/
 5. (Optional) To import a complete Insomnia collection for this project, open Insomnia and within Insomnia:
@@ -67,7 +67,7 @@ This application loads with an empty database. To fully interact with this appli
 7. [Technician](http://localhost:3000/service/technicians/new)
 8. [Appointment](http://localhost:3000/service/appointments/new)
 
-<img src="https://media.tenor.com/xtvIwLOM0n8AAAAC/puglie-pug.gif"  width="150">
+<img src="https://media.tenor.com/xtvIwLOM0n8AAAAC/puglie-pug.gif"  width="200">
 
 ## Inventory Microservice
 ### Overview
@@ -372,7 +372,7 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 }
 ```
 </details>
-<img src="https://media.tenor.com/Lxejq274IpwAAAAC/puglie-pug.gif"  width="150">
+<img src="https://media.tenor.com/Lxejq274IpwAAAAC/puglie-pug.gif"  width="200">
 
 ### React
 <table>
@@ -426,7 +426,7 @@ Api is a Django application with a Django project, `sales_project`, and a Django
 
 Poll is an application that contains a poller that gets `Automobile` data from the Inventory API every 10 seconds and creates or updates an `AutomobileVO` object. Then, the project uses React to render a dynamic single page app using various components, such as `SaleList` and `SaleForm`, that allow the user to interact with the website and add and read sales that are tied to a specific customer, sales person, and automobile which is listed by its VIN.
 
-<img src="https://media.tenor.com/tHGaYiEKgPsAAAAC/puglie-pug.gif" width="150">
+<img src="https://media.tenor.com/tHGaYiEKgPsAAAAC/puglie-pug.gif" width="200">
 
 ### Models
 
@@ -1041,7 +1041,7 @@ Poll is an application that contains a poller that gets `Automobile` data from t
 ```
 </details>
 
-<img src="https://media.tenor.com/q67kktx_IAUAAAAC/puglie-pug-puglie.gif" width="150">
+<img src="https://media.tenor.com/q67kktx_IAUAAAAC/puglie-pug-puglie.gif" width="200">
 
 ### React
 <table>
@@ -1077,6 +1077,6 @@ Poll is an application that contains a poller that gets `Automobile` data from t
 </table>
 <br>
 
-#### Great job reaching the end! Ok byeee
+#### Great job reaching the end! Sorry we made you read all that, here’s some pugs to make up for it. Ok byeeee
 <img src="https://media.tenor.com/zupicKOse1oAAAAd/pug-excuse.gif"  width="250">
 <img src="https://media.tenor.com/BjdFdMhTOTwAAAAC/puglie-pug-puglie.gif"  width="250">
