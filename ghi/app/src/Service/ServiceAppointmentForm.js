@@ -113,7 +113,7 @@ function AddServiceAppointment() {
                     </div>
                     <form onSubmit={handleSubmit} id="create-service-appointment-form">
                         <div className="form-floating mb-3">
-                            <input onChange={handleVinChange} value={vin} placeholder="VIN" required type="text" name="vin" id="vin" className="form-control" />
+                            <input onChange={handleVinChange} value={vin} placeholder="VIN" required maxLength="17" type="text" name="vin" id="vin" className="form-control" />
                             <label htmlFor="vin">VIN</label>
                         </div>
                         <div className="form-floating mb-3">

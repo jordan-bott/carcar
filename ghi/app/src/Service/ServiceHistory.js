@@ -30,10 +30,17 @@ function ListServiceHistory() {
 
     return (
         <>
-            <div style={{ "align-items": "right", "display": "flex" }}>
-                <input type="text" id="vininput" name="vininput" maxLength="17" onChange={handleVinChange} value={vin}></input><button onClick={fetchAppointmentList}>Search VIN</button>
+            <div className="mt-4 d-flex flex-row-reverse align-items-center justify-content-between">
+                <div>
+                    <div className="input-group">
+                        <input className="form-control" type="text" id="vininput" name="vininput" maxLength="17" onChange={handleVinChange} value={vin}></input><button className="btn btn-sm btn-outline-info" onClick={fetchAppointmentList}>Search VIN</button>
+                    </div>
+                </div>
+                <div className="p-2 flex-fill">
+                    <h1>Service History</h1>
+                </div>
             </div>
-            <table className="table align-middle">
+            <table className="table align-middle mt-2">
                 <thead>
                     <tr>
                         <th scope="col">VIN</th>
