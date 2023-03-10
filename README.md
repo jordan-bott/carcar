@@ -257,7 +257,7 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 <details>
 <summary><strong>Example GET Outputs</strong></summary>
 
-##### List all vehicle models:
+##### List all automobiles:
 ```
 {
 	"autos": [
@@ -282,7 +282,7 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 	]
 }
 ```
-##### Show a vehicle model's details:
+##### Show an automobile's details:
 ```
 {
 	"href": "/api/automobiles/J098DFASJ90/",
