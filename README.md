@@ -15,10 +15,14 @@ Team: 1
 ## Design
 CarCar is a Web application that is designed to manage an automobile dealership by tracking the inventory, sales, and service of cars. The application consists of 3 microservices: inventory, sales, and service. These microservices utilize RESTful API in the back-end that is then brought to the user interface on the front-end to dynamically display data and allow user interaction with the application. Both the sales and service microservices have their own Automobile value object (`AutomobileVO`), which is created and updated through their own poll microservice that requests and gets `Automobile` data from the Inventory.
 
-Docker is used to run the application. To use the app, follow the steps for the installation and instructions below and refer to each microservice's section as needed.
+Docker is used to run the application. To use the app, follow the steps for the installation below and refer to each microservice's section as needed.
 
-<details><summary><strong>Diagram</strong></summary>
+<details><summary><strong>Context Map</strong></summary>
 <img src="/CarCarModel.png">
+</details>
+
+<details><summary><strong>Route Diagram</strong></summary>
+<img src="">
 </details>
 
 ## Installation
@@ -39,7 +43,13 @@ docker-compose up
 5. (Optional) To import a complete Insomnia collection for this project, open Insomnia and within Insomnia:
 - Make a new project called CarCar
 - Within that project, click the Create dropdown at the top right and click File under IMPORT FROM
+	<details><summary>Screenshot</summary>
+		<img src="insomnia-instructions-step-2.png">
+	</details>
 - Select the Insomnia.yaml file from the project-beta folder and import
+	<details><summary>Screenshot</summary>
+		<img src="insomnia-instructions-step-3.png">
+	</details>
 - A new collection called **Shayne/Jordan CarCar** should show up, and that should contain **all of the RESTful API URLs and example inputs** to use for each microservice!
 
 ## Disclaimer
