@@ -9,8 +9,8 @@ Team: 1
 - [Design](#design)
 - [Installation](#installation)
 - [Inventory Microservice](#inventory-microservice)
-- [Service Microservice](#service-microservice)
 - [Sales Microservice](#sales-microservice)
+- [Service Microservice](#service-microservice)
 
 ## Design
 CarCar is a Web application that is designed to manage an automobile dealership by tracking the inventory, sales, and service of cars. The application consists of 3 microservices: inventory, sales, and service. These microservices utilize RESTful API in the back-end that is then brought to the user interface on the front-end to dynamically display data and allow user interaction with the application. Both the sales and service microservices have their own Automobile value object (`AutomobileVO`), which is created and updated through their own poll microservice that requests and gets `Automobile` data from the Inventory.
@@ -417,7 +417,7 @@ The Sales microservice consists of two microservices: **api** and **poll**.
 
 Api is a Django application with a Django project, `sales_project`, and a Django app, `sales_rest`, where the latter handles create, read, and delete functionality for sales people (`SalesPerson` objects), customers (`Customer` objects), and sales (`Sale` objects) of specific automobiles (`AutomobileVO`) in a dealership's inventory.
 
-Poll is an application that contains a poller that gets `Automobile` data from the Inventory API every 10 seconds and creates or updates a `AutomobileVO` object. Then, the project uses React to render a dynamic single page app using various components, such as `SaleList` and `SaleForm`, that allow the user to interact with the website and add and read sales (Shoe objects) that are tied to a specific customer, sales person, and automobile which is listed by its VIN.
+Poll is an application that contains a poller that gets `Automobile` data from the Inventory API every 10 seconds and creates or updates an `AutomobileVO` object. Then, the project uses React to render a dynamic single page app using various components, such as `SaleList` and `SaleForm`, that allow the user to interact with the website and add and read sales that are tied to a specific customer, sales person, and automobile which is listed by its VIN.
 
 ### Models
 
@@ -449,11 +449,10 @@ Poll is an application that contains a poller that gets `Automobile` data from t
 #### Customer
 | Method | URL | Action | View |
 | ------ | ------ | ------ | ------ |
-| GET | `http://localhost:8100/api/customers/` | List all customers | `api_customers` |
-| POST | `http://localhost:8100/api/customers/` | Create an customer | `api_customers` |
-| GET | `http://localhost:8100/api/customers/<id>/` | Show a customer's details | `api_customer` |
-| PUT | `http://localhost:8100/api/customers/<id>/` | Update a customer | `api_customer` |
-| DELETE | `http://localhost:8100/api/customers/<id>/` | Delete a customer | `api_customer` |
+| GET | `http://localhost:8090/api/customers/` | List all customers | `api_list_customers` |
+| POST | `http://localhost:8090/api/customers/` | Create a customer | `api_list_customers` |
+| GET | `http://localhost:8090/api/customers/<id>/` | Show a customer's details | `api_show_customer` |
+| DELETE | `http://localhost:8090/api/customers/<id>/` | Delete a customer | `api_show_customer` |
 
 <details>
 <summary><strong>Example GET Outputs</strong></summary>
@@ -558,11 +557,10 @@ Poll is an application that contains a poller that gets `Automobile` data from t
 #### Sales Person
 | Method | URL | Action | View |
 | ------ | ------ | ------ | ------ |
-| GET | `http://localhost:8100/api/sales-people/` | List all sales people | `api_list_sales_people` |
-| POST | `http://localhost:8100/api/sales-people/` | Create a sales person | `api_list_sales_people` |
-| GET | `http://localhost:8100/api/sales-people/<id>/` | Show a sales person's details | `api_show_sales_person` |
-| PUT | `http://localhost:8100/api/sales-people/<id>/` | Update a sales person | `api_show_sales_person` |
-| DELETE | `http://localhost:8100/api/sales-people/<id>/` | Delete a sales person | `api_show_sales_person` |
+| GET | `http://localhost:8090/api/sales-people/` | List all sales people | `api_list_sales_people` |
+| POST | `http://localhost:8090/api/sales-people/` | Create a sales person | `api_list_sales_people` |
+| GET | `http://localhost:8090/api/sales-people/<id>/` | Show a sales person's details | `api_show_sales_person` |
+| DELETE | `http://localhost:8090/api/sales-people/<id>/` | Delete a sales person | `api_show_sales_person` |
 
 <details>
 <summary><strong>Example GET Outputs</strong></summary>
@@ -624,11 +622,10 @@ Poll is an application that contains a poller that gets `Automobile` data from t
 #### Sales
 | Method | URL | Action | View |
 | ------ | ------ | ------ | ------ |
-| GET | `http://localhost:8100/api/sales/` | List all sales | `api_list_sales` |
-| POST | `http://localhost:8100/api/sales/` | Create a sale | `api_list_sales` |
-| GET | `http://localhost:8100/api/sales/<id>/` | Show a sale's details | `api_show_sale` |
-| PUT | `http://localhost:8100/api/sales/<id>/` | Update a sale | `api_show_sale` |
-| DELETE | `http://localhost:8100/api/sales/<id>/` | Delete a sale | `api_show_sale` |
+| GET | `http://localhost:8090/api/sales/` | List all sales | `api_list_sales` |
+| POST | `http://localhost:8090/api/sales/` | Create a sale | `api_list_sales` |
+| GET | `http://localhost:8090/api/sales/<id>/` | Show a sale's details | `api_show_sale` |
+| DELETE | `http://localhost:8090/api/sales/<id>/` | Delete a sale | `api_show_sale` |
 
 <details>
 <summary><strong>Example GET Outputs</strong></summary>
@@ -811,6 +808,27 @@ Poll is an application that contains a poller that gets `Automobile` data from t
 	]
 }
 ```
+</details>
+
+<details><summary><strong>Example POST Input and Output</strong></summary>
+
+##### Input:
+```
+{
+	"name": "Danny J",
+	"employee_number": 7846517
+}
+```
+
+##### Output:
+```
+{
+	"name": "Danny J",
+	"employee_number": 7846517,
+	"id": 1
+}
+```
+
 </details>
 
 #### Appointment
@@ -1014,3 +1032,36 @@ Poll is an application that contains a poller that gets `Automobile` data from t
 }
 ```
 </details>
+
+### React
+<table>
+	<thead>
+		<tr>
+			<th>Action</th>
+			<th>URL</th>
+			<th>Component(s)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Add a technician</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Make a service appointment</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>List appointments</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>List appointments by VIN</td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
