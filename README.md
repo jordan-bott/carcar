@@ -71,7 +71,7 @@ This application loads with an empty database. To fully interact with this appli
 
 ## Inventory Microservice
 ### Overview
-The Inventory microservice consists of one main microservice, **api**, and represents the dealership's inventory of vehicles. 
+The Inventory microservice consists of one main application, **api**, and represents the dealership's inventory of vehicles. 
 
 Api is a Django application with a Django project, `inventory_project`, and a Django app, `inventory_rest`, where the latter handles create, read, update, and delete (CRUD) functionality for manufacturers (`Manufacturer` objects), vehicle models (`VehicleModel` objects), and automobiles (`Automobile` objects).
 
@@ -420,11 +420,13 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 ## Sales Microservice
 
 ### Overview
-The Sales microservice consists of two microservices: **api** and **poll**.
+The Sales microservice consists of two applications: **api** and **poll**.
 
 Api is a Django application with a Django project, `sales_project`, and a Django app, `sales_rest`, where the latter handles create, read, and delete functionality for sales people (`SalesPerson` objects), customers (`Customer` objects), and sales (`Sale` objects) of specific automobiles (`AutomobileVO`) in a dealership's inventory.
 
-Poll is an application that contains a poller that gets `Automobile` data from the Inventory API every 10 seconds and creates or updates an `AutomobileVO` object. Then, the project uses React to render a dynamic single page app using various components, such as `SaleList` and `SaleForm`, that allow the user to interact with the website and add and read sales that are tied to a specific customer, sales person, and automobile which is listed by its VIN.
+Poll is an application that contains a poller that gets `Automobile` data from the Inventory API every 10 seconds and creates or updates an `AutomobileVO` object within the Sales database. 
+
+Then, the project uses React to render a dynamic single page app using various components, such as `SaleList` and `SaleForm`, that allow the user to interact with the website and add and read sales that are tied to a specific customer, sales person, and automobile which is listed by its VIN.
 
 <img src="https://media.tenor.com/tHGaYiEKgPsAAAAC/puglie-pug.gif" width="200">
 
@@ -739,9 +741,6 @@ Poll is an application that contains a poller that gets `Automobile` data from t
 }
 ```
 </details>
-
-### Poll
-- One poller to poll the Inventory API for `Automobile` resources every 10 seconds
 
 ### React
 
