@@ -54,7 +54,7 @@ export default function SalesPersonForm() {
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className="form-floating mb-3">
-                            <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
+                            <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" maxLength="200" name="name" id="name" className="form-control" />
                             <label htmlFor="name">Name</label>
                         </div>
                         <div className="form-floating mb-3">

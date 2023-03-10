@@ -63,12 +63,12 @@ export default function VehicleModelForm() {
                     <h1 className="text-center mb-3">Add a Vehicle Model</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="form-floating mb-3">
-                            <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" maxlength="100" name="name" id="name"
+                            <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" maxLength="100" name="name" id="name"
                                 className="form-control" />
                             <label htmlFor="name">Name</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input value={pictureUrl} onChange={handlePictureUrlChange} placeholder="Picture URL" required type="url" name="picture_url" maxlength="200" id="picture_url" className="form-control" />
+                            <input value={pictureUrl} onChange={handlePictureUrlChange} placeholder="Picture URL" required type="url" name="picture_url" maxLength="200" id="picture_url" className="form-control" />
                             <label htmlFor="picture_url">Picture URL</label>
                         </div>
                         <div className="form-floating mb-3">
