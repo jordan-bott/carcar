@@ -19,7 +19,7 @@ export default function AutomobileList() {
                     </tr>
                 </thead>
                 <tbody className="table-group-divider">
-                    {[...autos].reverse().map(auto => {
+                    {autos.map(auto => {
                         return (
                             <tr key={auto.href}>
                                 <td className="w-25">
