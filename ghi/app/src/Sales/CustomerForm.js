@@ -73,9 +73,11 @@ export default function CustomerForm() {
                 setZipCode("");
                 setPhoneNumber("");
                 toast(`🤸🏾 ${newCustomer.name} was successfully added as a customer!`);
+            } else {
+                throw new Error("Response not ok");
             }
         } catch (e) {
-            toast.error(e);
+            toast.error(`${e}`);
         }
     }
 

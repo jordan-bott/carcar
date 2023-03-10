@@ -62,9 +62,11 @@ export default function AddAutoForm() {
                 setModelId('');
                 navigate('/inventory/automobiles');
                 toast(`Successfully added a ${newAutomobile.color} ${newAutomobile.year} ${newAutomobile.model.manufacturer.name} ${newAutomobile.model.name} to the inventory!`);
+            } else {
+                throw new Error("Response not ok. Make sure you are not giving an existing VIN!");
             }
         } catch (e) {
-            toast.error(e);
+            toast.error(`${e}`);
         }
     }
 

@@ -79,7 +79,7 @@ export default function SaleForm() {
                 throw new Error("Response not ok");
             }
         } catch (e) {
-            toast.error(e);
+            toast.error(`${e}`);
         }
     }
 

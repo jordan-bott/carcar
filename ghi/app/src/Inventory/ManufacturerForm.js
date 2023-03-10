@@ -34,9 +34,11 @@ export default function ManufacturerForm() {
                 setName("");
                 navigate("/inventory/manufacturers");
                 toast(`Successfully added ${newManufacturer.name} as a manufacturer!`);
+            } else {
+                throw new Error("Response not ok");
             }
         } catch (e) {
-            toast.error(e);
+            toast.error(`${e}`);
         }
     }
 

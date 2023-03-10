@@ -38,9 +38,11 @@ export default function SalesPersonForm() {
                 setName("");
                 setEmployeeNumber("");
                 toast(`🧑🏽‍💼 ${newSalesPerson.name} was successfully added as a sales person!`);
+            } else {
+                throw new Error("Response not ok. Make sure you are not giving an existing employee number!");
             }
         } catch (e) {
-            toast.error(e);
+            toast.error(`${e}`);
         }
     }
 

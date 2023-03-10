@@ -50,9 +50,11 @@ export default function VehicleModelForm() {
                 setManufacturer("");
                 navigate("/inventory/models");
                 toast(`Successfully added ${newVehicleModel.name} as a vehicle model!`);
+            } else {
+                throw new Error("Response not ok");
             }
         } catch (e) {
-            toast.error(e);
+            toast.error(`${e}`);
         }
     }
 
