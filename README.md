@@ -66,14 +66,9 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 {
 	"manufacturers": [
 		{
-			"href": "/api/manufacturers/2/",
-			"id": 2,
-			"name": "Nissan"
-		},
-		{
 			"href": "/api/manufacturers/1/",
 			"id": 1,
-			"name": "Toyota"
+			"name": "Chrysler"
 		}
 	]
 }
@@ -83,7 +78,7 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 {
 	"href": "/api/manufacturers/1/",
 	"id": 1,
-	"name": "Toyota"
+	"name": "Chrysler"
 }
 ```
 </details>
@@ -94,7 +89,7 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 ##### Input:
 ```
 {
-	"name": "Toyota"
+  "name": "Chrysler"
 }
 ```
 
@@ -103,7 +98,7 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 {
 	"href": "/api/manufacturers/1/",
 	"id": 1,
-	"name": "Toyota"
+	"name": "Chrysler"
 }
 ```
 
@@ -115,7 +110,7 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 ```
 {
 	"id": null,
-	"name": "Toyota"
+	"name": "Chrysler"
 }
 ```
 </details>
@@ -138,36 +133,14 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 {
 	"models": [
 		{
-			"href": "/api/models/2/",
-			"id": 2,
-			"name": "Camry",
-			"picture_url": "https://cdn-ds.com/blogs-media/sites/285/2022/09/14164814/E6-2023-Toyota-Camry_A1_o.jpg",
-			"manufacturer": {
-				"href": "/api/manufacturers/1/",
-				"id": 1,
-				"name": "Toyota"
-			}
-		},
-		{
-			"href": "/api/models/3/",
-			"id": 3,
-			"name": "Civic",
-			"picture_url": "https://images.mktw.net/im-691168?width=1280&size=1.33333333",
+			"href": "/api/models/1/",
+			"id": 1,
+			"name": "Sebring",
+			"picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
 			"manufacturer": {
 				"href": "/api/manufacturers/2/",
 				"id": 2,
-				"name": "Honda"
-			}
-		},
-		{
-			"href": "/api/models/4/",
-			"id": 4,
-			"name": "Corolla Hybrid",
-			"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
-			"manufacturer": {
-				"href": "/api/manufacturers/1/",
-				"id": 1,
-				"name": "Toyota"
+				"name": "Chrysler"
 			}
 		}
 	]
@@ -176,14 +149,14 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 ##### Show a vehicle model's details:
 ```
 {
-	"href": "/api/models/4/",
-	"id": 4,
-	"name": "Corolla Hybrid",
-	"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+	"href": "/api/models/1/",
+	"id": 1,
+	"name": "Sebring",
+	"picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
 	"manufacturer": {
-		"href": "/api/manufacturers/1/",
-		"id": 1,
-		"name": "Toyota"
+		"href": "/api/manufacturers/2/",
+		"id": 2,
+		"name": "Chrysler"
 	}
 }
 ```
@@ -195,23 +168,23 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 ##### Input:
 ```
 {
-	"name": "Corolla Hybrid",
-	"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
-	"manufacturer_id": 1
+  "name": "Sebring",
+  "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+  "manufacturer_id": 2
 }
 ```
 
 ##### Output:
 ```
 {
-	"href": "/api/models/4/",
-	"id": 4,
-	"name": "Corolla Hybrid",
-	"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+	"href": "/api/models/1/",
+	"id": 1,
+	"name": "Sebring",
+	"picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
 	"manufacturer": {
-		"href": "/api/manufacturers/1/",
-		"id": 1,
-		"name": "Toyota"
+		"href": "/api/manufacturers/2/",
+		"id": 2,
+		"name": "Chrysler"
 	}
 }
 ```
@@ -224,12 +197,12 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 ```
 {
 	"id": null,
-	"name": "Corolla Hybrid",
-	"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+	"name": "Pacifica",
+	"picture_url": "https://www.motortrend.com/uploads/2021/11/2022-Chrysler-Pacifica-029.jpg",
 	"manufacturer": {
-		"href": "/api/manufacturers/1/",
-		"id": 1,
-		"name": "Toyota"
+		"href": "/api/manufacturers/2/",
+		"id": 2,
+		"name": "Chrysler"
 	}
 }
 ```
@@ -252,60 +225,43 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 {
 	"autos": [
 		{
-			"href": "/api/automobiles/F789SD0F7S89/",
-			"id": 2,
-			"color": "Celestite",
-			"year": 2020,
-			"vin": "F789SD0F7S89",
-			"model": {
-				"href": "/api/models/4/",
-				"id": 4,
-				"name": "Corolla Hybrid",
-				"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
-				"manufacturer": {
-					"href": "/api/manufacturers/1/",
-					"id": 1,
-					"name": "Toyota"
-				}
-			}
-		},
-		{
-			"href": "/api/automobiles/7890F7S89FSFA/",
+			"href": "/api/automobiles/J098DFASJ90/",
 			"id": 1,
-			"color": "Silver",
-			"year": 2022,
-			"vin": "7890F7S89FSFA",
+			"color": "Red",
+			"year": 2012,
+			"vin": "J098DFASJ90",
 			"model": {
-				"href": "/api/models/4/",
-				"id": 4,
-				"name": "Corolla Hybrid",
-				"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+				"href": "/api/models/2/",
+				"id": 2,
+				"name": "Sebring",
+				"picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
 				"manufacturer": {
-					"href": "/api/manufacturers/1/",
-					"id": 1,
-					"name": "Toyota"
+					"href": "/api/manufacturers/2/",
+					"id": 2,
+					"name": "Chrysler"
 				}
 			}
 		}
 	]
+}
 ```
 ##### Show a vehicle model's details:
 ```
 {
-	"href": "/api/automobiles/F789SD0F7S89/",
+	"href": "/api/automobiles/J098DFASJ90/",
 	"id": 1,
-	"color": "Celestite",
-	"year": 2020,
-	"vin": "F789SD0F7S89",
+	"color": "Red",
+	"year": 2012,
+	"vin": "J098DFASJ90",
 	"model": {
-		"href": "/api/models/4/",
-		"id": 4,
-		"name": "Corolla Hybrid",
-		"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+		"href": "/api/models/2/",
+		"id": 2,
+		"name": "Sebring",
+		"picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
 		"manufacturer": {
-			"href": "/api/manufacturers/1/",
-			"id": 1,
-			"name": "Toyota"
+			"href": "/api/manufacturers/2/",
+			"id": 2,
+			"name": "Chrysler"
 		}
 	}
 }
@@ -318,30 +274,30 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 ##### Input:
 ```
 {
-	"color": "Celestite",
-	"year": "2020",
-	"vin": "F789SD0F7S89",
-	"model_id": 1
+  "color": "Red",
+  "year": 2012,
+  "vin": "J098DFASJ90",
+  "model_id": 2
 }
 ```
 
 ##### Output:
 ```
 {
-	"href": "/api/automobiles/F789SD0F7S89/",
-	"id": 1,
-	"color": "Celestite",
-	"year": "2020",
-	"vin": "F789SD0F7S89",
+	"href": "/api/automobiles/J098DFASJ90/",
+	"id": 2,
+	"color": "Red",
+	"year": 2012,
+	"vin": "J098DFASJ90",
 	"model": {
-		"href": "/api/models/4/",
-		"id": 4,
-		"name": "Corolla Hybrid",
-		"picture_url": "https://o.aolcdn.com/images/dims3/GLOB/crop/2560x1440+0+0/resize/800x450!/format/jpg/quality/85/https://s.yimg.com/os/creatr-uploaded-images/2019-02/78d8ef20-3984-11e9-b7fd-042327182633",
+		"href": "/api/models/2/",
+		"id": 2,
+		"name": "Sebring",
+		"picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
 		"manufacturer": {
-			"href": "/api/manufacturers/1/",
-			"id": 1,
-			"name": "Toyota"
+			"href": "/api/manufacturers/2/",
+			"id": 2,
+			"name": "Chrysler"
 		}
 	}
 }
@@ -353,7 +309,24 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 <br>
 
 ```
-
+{
+	"href": "/api/automobiles/1C3CC5FB2AN120174/",
+	"id": null,
+	"color": "Silver",
+	"year": 2012,
+	"vin": "1C3CC5FB2AN120174",
+	"model": {
+		"href": "/api/models/2/",
+		"id": 2,
+		"name": "Sebring",
+		"picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+		"manufacturer": {
+			"href": "/api/manufacturers/2/",
+			"id": 2,
+			"name": "Chrysler"
+		}
+	}
+}
 ```
 </details>
 
@@ -364,6 +337,239 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 
 ## Service Microservice
 ### Overview
+
+
+### RESTful API (Port 8080)
+
+#### Technician
+| Method | URL | Action | View |
+| ------ | ------ | ------ | ------ |
+| GET | `` | List all  | `` |
+| POST | `` | Create a  | `` |
+
+<details>
+<summary><strong>Example GET Output</strong></summary>
+<br>
+
+```
+{
+	"technicians": [
+		{
+			"name": "Danny J",
+			"employee_number": 7846517,
+			"id": 1
+		},
+		{
+			"name": "Scooby Doo",
+			"employee_number": 5354234,
+			"id": 2
+		}
+	]
+}
+```
+</details>
+
+#### Appointment
+| Method | URL | Action | View |
+| ------ | ------ | ------ | ------ |
+| POST | `` | Create a service appointment | `` |
+| GET | `` | List upcoming services | `` |
+| GET | `` | List all services | `` |
+| GET | `` | List services by VIN | `` |
+| PUT | `` | Cancel appointment | `` |
+| PUT | `` | Finish appointment | `` |
+
+<details>
+<summary><strong>Example GET Outputs</strong></summary>
+
+##### List upcoming services:
+```
+{
+	"services": [
+		{
+			"status": "SCHEDULED",
+			"vin": "J098DFASJ90",
+			"auto_owner": "Shaggy",
+			"appointment_date": "2023-03-15",
+			"appointment_time": "09:30:00",
+			"technician": {
+				"name": "Danny J",
+				"employee_number": 7846517,
+				"id": 1
+			},
+			"service_reason": "",
+			"id": 2,
+			"vip_treatment": true
+		}
+	]
+}
+```
+##### List all services:
+```
+[
+	{
+		"status": "FINISHED",
+		"vin": "J098DFASJ90",
+		"auto_owner": "Shaggy",
+		"appointment_date": "2023-03-15",
+		"appointment_time": "09:30:00",
+		"technician": {
+			"name": "Danny J",
+			"employee_number": 7846517,
+			"id": 1
+		},
+		"service_reason": "",
+		"id": 2,
+		"vip_treatment": true
+	},
+	{
+		"status": "SCHEDULED",
+		"vin": "1C3CC5FB2AN120174",
+		"auto_owner": "Janey",
+		"appointment_date": "2023-03-15",
+		"appointment_time": "10:30:00",
+		"technician": {
+			"name": "Danny J",
+			"employee_number": 7846517,
+			"id": 1
+		},
+		"service_reason": "",
+		"id": 3,
+		"vip_treatment": false
+	},
+	{
+		"status": "CANCELED",
+		"vin": "1C3CC5FB2AN120174",
+		"auto_owner": "Janey",
+		"appointment_date": "2023-09-15",
+		"appointment_time": "09:30:00",
+		"technician": {
+			"name": "Danny J",
+			"employee_number": 7846517,
+			"id": 1
+		},
+		"service_reason": "",
+		"id": 1,
+		"vip_treatment": false
+	}
+]
+```
+##### List services by VIN:
+```
+{
+	"services": [
+		{
+			"status": "SCHEDULED",
+			"vin": "1C3CC5FB2AN120174",
+			"auto_owner": "Janey",
+			"appointment_date": "2023-03-15",
+			"appointment_time": "10:30:00",
+			"technician": {
+				"name": "Danny J",
+				"employee_number": 7846517,
+				"id": 1
+			},
+			"service_reason": "",
+			"id": 3,
+			"vip_treatment": false
+		},
+		{
+			"status": "CANCELED",
+			"vin": "1C3CC5FB2AN120174",
+			"auto_owner": "Janey",
+			"appointment_date": "2023-09-15",
+			"appointment_time": "09:30:00",
+			"technician": {
+				"name": "Danny J",
+				"employee_number": 7846517,
+				"id": 1
+			},
+			"service_reason": "",
+			"id": 1,
+			"vip_treatment": false
+		}
+	]
+}
+```
+</details>
+
+<details>
+<summary><strong>Example POST Input and Output</strong></summary>
+
+##### Input:
+```
+{
+	"vin": "1C3CC5FB2AN120174",
+	"auto_owner": "Janey",
+	"appointment_time": "09:30:00",
+	"appointment_date": "2023-09-15",
+	"technician": 7846517
+}
+```
+
+##### Output:
+```
+{
+	"status": "SCHEDULED",
+	"vin": "1C3CC5FB2AN120174",
+	"auto_owner": "Janey",
+	"appointment_date": "2023-09-15",
+	"appointment_time": "09:30:00",
+	"technician": {
+		"name": "Danny J",
+		"employee_number": 7846517,
+		"id": 1
+	},
+	"service_reason": "",
+	"id": 1,
+	"vip_treatment": false
+}
+```
+
+</details>
+
+<details><summary><strong>Example PUT Outputs</strong></summary>
+
+##### Cancel appointment:
+
+```
+{
+	"status": "CANCELED",
+	"vin": "1C3CC5FB2AN120174",
+	"auto_owner": "Janey",
+	"appointment_date": "2023-09-15",
+	"appointment_time": "09:30:00",
+	"technician": {
+		"name": "Danny J",
+		"employee_number": 7846517,
+		"id": 1
+	},
+	"service_reason": "",
+	"id": 1,
+	"vip_treatment": false
+}
+```
+
+##### Finish appointment:
+
+```
+{
+	"status": "FINISHED",
+	"vin": "J098DFASJ90",
+	"auto_owner": "Shaggy",
+	"appointment_date": "2023-03-15",
+	"appointment_time": "09:30:00",
+	"technician": {
+		"name": "Danny J",
+		"employee_number": 7846517,
+		"id": 1
+	},
+	"service_reason": "",
+	"id": 2,
+	"vip_treatment": true
+}
+```
+</details>
 
 
 ## Sales Microservice
@@ -388,13 +594,293 @@ Api is a Django application with a Django project, `inventory_project`, and a Dj
 
 ### RESTful API (Port 8090)
 
-| Method | URL | What it does | View function | Notes |
-| ------ | ------ | ------ | ------ | ------ |
-| GET |  | | | |
-| GET |  | | |  |
-| POST |  |  |  |
-| GET |  | |  |
-| DELETE |  |  |  |
+#### Customer
+| Method | URL | Action | View |
+| ------ | ------ | ------ | ------ |
+| GET | `http://localhost:8100/api/customers/` | List all customers | `api_customers` |
+| POST | `http://localhost:8100/api/customers/` | Create an customer | `api_customers` |
+| GET | `http://localhost:8100/api/customers/<id>/` | Show a customer's details | `api_customer` |
+| PUT | `http://localhost:8100/api/customers/<id>/` | Update a customer | `api_customer` |
+| DELETE | `http://localhost:8100/api/customers/<id>/` | Delete a customer | `api_customer` |
+
+<details>
+<summary><strong>Example GET Outputs</strong></summary>
+
+##### List all customers:
+```
+{
+	"customers": [
+		{
+			"id": 1,
+			"name": "Hack Reactor",
+			"address": "119 Nueces St 8, Austin, TX 78701",
+			"phone_number": "720-615-0225"
+		},
+		{
+			"id": 2,
+			"name": "Hack Reactor",
+			"address": "119 Nueces St, Austin, TX 78701",
+			"phone_number": "720-615-0225"
+		}
+	]
+}
+```
+##### Show a customer's details:
+```
+{
+	"id": 1,
+	"name": "Hack Reactor",
+	"address": "119 Nueces St 8, Austin, TX 78701",
+	"phone_number": "720-615-0225"
+}
+```
+</details>
+
+<details>
+<summary><strong>Example POST Input and Output</strong></summary>
+<br>
+
+<details><summary>With Apartment Property (Optional)</summary>
+
+##### Input :
+```
+{
+	"name": "Hack Reactor",
+	"street": "119 Nueces St",
+	"apartment": 8,
+	"city": "Austin", 
+	"state": "TX" ,
+	"zip_code": 78701,
+	"phone_number": "720-615-0225"
+}
+```
+
+##### Output:
+```
+{
+	"id": 4,
+	"name": "Hack Reactor",
+	"address": "119 Nueces St 8, Austin, TX 78701",
+	"phone_number": "720-615-0225"
+}
+```
+</details>
+
+<details><summary>Without Apartment Property</summary>
+
+##### Input :
+```
+{
+	"name": "Hack Reactor",
+	"street": "119 Nueces St",
+	"city": "Austin", 
+	"state": "TX" ,
+	"zip_code": 78701,
+	"phone_number": "720-615-0225"
+}
+```
+
+##### Output:
+```
+{
+	"id": 1,
+	"name": "Hack Reactor",
+	"address": "119 Nueces St, Austin, TX 78701",
+	"phone_number": "720-615-0225"
+}
+```
+</details>
+
+</details>
+
+<details><summary><strong>Example DELETE Output</strong></summary>
+<br>
+
+```
+{
+	"deleted": true
+}
+```
+</details>
+
+#### Sales Person
+| Method | URL | Action | View |
+| ------ | ------ | ------ | ------ |
+| GET | `http://localhost:8100/api/sales-people/` | List all sales people | `api_list_sales_people` |
+| POST | `http://localhost:8100/api/sales-people/` | Create a sales person | `api_list_sales_people` |
+| GET | `http://localhost:8100/api/sales-people/<id>/` | Show a sales person's details | `api_show_sales_person` |
+| PUT | `http://localhost:8100/api/sales-people/<id>/` | Update a sales person | `api_show_sales_person` |
+| DELETE | `http://localhost:8100/api/sales-people/<id>/` | Delete a sales person | `api_show_sales_person` |
+
+<details>
+<summary><strong>Example GET Outputs</strong></summary>
+
+##### List all sales people:
+```
+{
+	"sales_people": [
+		{
+			"id": 1,
+			"name": "Shayne Buac",
+			"employee_number": 912944225
+		}
+	]
+}
+```
+##### Show a sales person's details:
+```
+{
+	"id": 1,
+	"name": "Shayne Buac",
+	"employee_number": 912944225
+}
+```
+</details>
+
+<details>
+<summary><strong>Example POST Input and Output</strong></summary>
+
+##### Input:
+```
+{
+	"name": "Shayne Buac",
+	"employee_number": 912944225
+}
+```
+
+##### Output:
+```
+{
+	"id": 1,
+	"name": "Shayne Buac",
+	"employee_number": 912944225
+}
+```
+
+</details>
+
+<details><summary><strong>Example DELETE Output</strong></summary>
+<br>
+
+```
+{
+	"deleted": true
+}
+```
+</details>
+
+#### Sales
+| Method | URL | Action | View |
+| ------ | ------ | ------ | ------ |
+| GET | `http://localhost:8100/api/sales/` | List all sales | `api_list_sales` |
+| POST | `http://localhost:8100/api/sales/` | Create a sale | `api_list_sales` |
+| GET | `http://localhost:8100/api/sales/<id>/` | Show a sale's details | `api_show_sale` |
+| PUT | `http://localhost:8100/api/sales/<id>/` | Update a sale | `api_show_sale` |
+| DELETE | `http://localhost:8100/api/sales/<id>/` | Delete a sale | `api_show_sale` |
+
+<details>
+<summary><strong>Example GET Outputs</strong></summary>
+
+##### List all sales:
+```
+{
+	"sales": [
+		{
+			"href": "/api/sales/1/",
+			"id": 1,
+			"price": 20000,
+			"automobile": {
+				"import_href": "/api/automobiles/J098DFASJ90/",
+				"vin": "J098DFASJ90"
+			},
+			"sales_person": {
+				"id": 2,
+				"name": "Shayne Buac",
+				"employee_number": 912944225
+			},
+			"customer": {
+				"id": 2,
+				"name": "Hack Reactor",
+				"address": "119 Nueces St, Austin, TX 78701",
+				"phone_number": "720-615-0225"
+			}
+		}
+	]
+}
+```
+##### Show a sale's details:
+```
+{
+	"href": "/api/sales/1/",
+	"id": 1,
+	"price": 20000,
+	"automobile": {
+		"import_href": "/api/automobiles/J098DFASJ90/",
+		"vin": "J098DFASJ90"
+	},
+	"sales_person": {
+		"id": 2,
+		"name": "Shayne Buac",
+		"employee_number": 912944225
+	},
+	"customer": {
+		"id": 2,
+		"name": "Hack Reactor",
+		"address": "119 Nueces St, Austin, TX 78701",
+		"phone_number": "720-615-0225"
+	}
+}
+```
+</details>
+
+<details>
+<summary><strong>Example POST Input and Output</strong></summary>
+
+##### Input:
+```
+{
+	"price": 20000,
+	"automobile": "J098DFASJ90",
+	"sales_person": 912944225,
+	"customer": 2
+}
+```
+
+##### Output:
+```
+{
+	"href": "/api/sales/1/",
+	"id": 1,
+	"price": 20000,
+	"automobile": {
+		"import_href": "/api/automobiles/J098DFASJ90/",
+		"vin": "J098DFASJ90"
+	},
+	"sales_person": {
+		"id": 2,
+		"name": "Shayne Buac",
+		"employee_number": 912944225
+	},
+	"customer": {
+		"id": 2,
+		"name": "Hack Reactor",
+		"address": "119 Nueces St, Austin, TX 78701",
+		"phone_number": "720-615-0225"
+	}
+}
+```
+
+</details>
+
+<details><summary><strong>Example DELETE Output</strong></summary>
+<br>
+
+```
+{
+	"deleted": true
+}
+```
+</details>
 
 ### Poller
 - One poller to poll the Inventory API for `Automobile` resources every 60 seconds
