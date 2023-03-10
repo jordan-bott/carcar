@@ -791,11 +791,41 @@ The Service Mircoservice contains two applications, api and poll. These two appl
 
 **API**
 
-This Django app holds the majority of the backend funcitonality for the Service Microservice. It contains three models: `AutomobileVO`, `SeriveAppointment`, and `Technician`. This app contains the backend functionality for making an appointment, listing scheduled appointments, listing all appointments, listing appointments by VIN, updating the status of appointments to be "finished" or "canceled", adding a technician and listing all technicians.
+This Django app holds the majority of the backend funcitonality for the Service Microservice. It contains three models: `AutomobileVO`, `ServiceAppointment`, and `Technician`. This app contains the backend functionality for making an appointment, listing scheduled appointments, listing all appointments, listing appointments by VIN, updating the status of appointments to be "finished" or "canceled", adding a technician and listing all technicians.
 
 **Poll**
 
 This application is very barebones and it's only functionality is to poll for data from the Inventory microservice. The poller.py file polls for the `vin` and `href` properties of the `Automobile` model and assigns them to the `import_href` and `vin` properties of `AutomobileVO` model. 
+
+**Models**
+
+`ServiceAppointment` 
+
+This model is representing a service appointment and all of it's details. 
+
+Properties:
+- vin
+- auto_owner
+- appointment_date
+- appointment_time
+- service_reason
+- technician (foreign key to Technician Model)
+
+`Technician` 
+
+This model is representing a technician for use in the scheduling of appointments. Thus, it only includes the technician's name and employee number.
+
+Properties:
+- name
+- employee_number
+
+`AutomobileVO` 
+
+This model is a **value object**. It is used to check the inventory to see if the car being serviced was in the inventory at one time. 
+
+Properties:
+- import_href
+- vin 
 
 
 ### RESTful API (Port 8080)
