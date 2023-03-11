@@ -2,9 +2,9 @@ import { NavLink, Link } from 'react-router-dom';
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: "#364765" }}>
+    <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundImage: "linear-gradient(140deg, #E8E0D1 0%, #CEA461 50%, #B97A63 75%)" }}>
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">CarCar</NavLink>
+        <NavLink className="navbar-brand fw-bold" to="/">CarCar</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
