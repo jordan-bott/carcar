@@ -104,48 +104,50 @@ function AddServiceAppointment() {
 
 
     return (
-        <div className="row">
-            <div className="offset-3 col-6">
-                <div className="shadow p-4 mt-4">
-                    <div className="d-flex mb-3 align-items-center justify-content-center">
-                        <h1 className="text-center">Create a Service Appointment</h1>
-                        <img src="https://img.icons8.com/stickers/75/null/tear-off-calendar.png" className="align-items-left" />
+        <div className="container">
+            <div className="row">
+                <div className="offset-3 col-6">
+                    <div className="shadow p-4 mt-4">
+                        <div className="d-flex mb-3 align-items-center justify-content-center">
+                            <h1 className="text-center">Create a Service Appointment</h1>
+                            <img src="https://img.icons8.com/stickers/75/null/tear-off-calendar.png" className="align-items-left" />
+                        </div>
+                        <form onSubmit={handleSubmit} id="create-service-appointment-form">
+                            <div className="form-floating mb-3">
+                                <input onChange={handleVinChange} value={vin} placeholder="VIN" required maxLength="17" type="text" name="vin" id="vin" className="form-control" />
+                                <label htmlFor="vin">VIN</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                                <input onChange={handleAutoOwnerChange} value={autoOwner} placeholder="First Last" required type="text" name="autoOwner" id="autoOwner" className="form-control" />
+                                <label htmlFor="autoOwner">Auto Owner</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                                <input onChange={handleAppointmentDateChange} value={appointmentDate} placeholder="Date" required type="date" name="appointmentDate" id="appointmentDate" className="form-control" />
+                                <label htmlFor="appointmentDate">Appointment Date</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                                <input onChange={handleAppointmentTimeChange} value={appointmentTime} placeholder="Time" required type="time" name="appointmentTime" id="appointmentTime" className="form-control" />
+                                <label htmlFor="appointmentTime">Appointment Time</label>
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="serviceReason">Reason for Service</label>
+                                <textarea onChange={handleServiceReasonChange} value={serviceReason} name="serviceReason" id="serviceReason" className="form-control" rows="5"></textarea>
+                            </div>
+                            <div className="mb-3">
+                                <select onChange={handleTechnicianChange} value={technician} required name="technician" id="technician" className="form-select">
+                                    <option value="">Choose a Technician</option>
+                                    {technicians.map(technician => {
+                                        return (
+                                            <option key={technician.id} value={technician.employee_number}>
+                                                {technician.name} - {technician.employee_number}
+                                            </option>
+                                        )
+                                    })}
+                                </select>
+                            </div>
+                            <button className="btn btn-primary">Create</button>
+                        </form>
                     </div>
-                    <form onSubmit={handleSubmit} id="create-service-appointment-form">
-                        <div className="form-floating mb-3">
-                            <input onChange={handleVinChange} value={vin} placeholder="VIN" required maxLength="17" type="text" name="vin" id="vin" className="form-control" />
-                            <label htmlFor="vin">VIN</label>
-                        </div>
-                        <div className="form-floating mb-3">
-                            <input onChange={handleAutoOwnerChange} value={autoOwner} placeholder="First Last" required type="text" name="autoOwner" id="autoOwner" className="form-control" />
-                            <label htmlFor="autoOwner">Auto Owner</label>
-                        </div>
-                        <div className="form-floating mb-3">
-                            <input onChange={handleAppointmentDateChange} value={appointmentDate} placeholder="Date" required type="date" name="appointmentDate" id="appointmentDate" className="form-control" />
-                            <label htmlFor="appointmentDate">Appointment Date</label>
-                        </div>
-                        <div className="form-floating mb-3">
-                            <input onChange={handleAppointmentTimeChange} value={appointmentTime} placeholder="Time" required type="time" name="appointmentTime" id="appointmentTime" className="form-control" />
-                            <label htmlFor="appointmentTime">Appointment Time</label>
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="serviceReason">Reason for Service</label>
-                            <textarea onChange={handleServiceReasonChange} value={serviceReason} name="serviceReason" id="serviceReason" className="form-control" rows="5"></textarea>
-                        </div>
-                        <div className="mb-3">
-                            <select onChange={handleTechnicianChange} value={technician} required name="technician" id="technician" className="form-select">
-                                <option value="">Choose a Technician</option>
-                                {technicians.map(technician => {
-                                    return (
-                                        <option key={technician.id} value={technician.employee_number}>
-                                            {technician.name} - {technician.employee_number}
-                                        </option>
-                                    )
-                                })}
-                            </select>
-                        </div>
-                        <button className="btn btn-primary">Create</button>
-                    </form>
                 </div>
             </div>
         </div>

@@ -10,27 +10,29 @@ export default function SalesFilteredList({ sales, salesPerson }) {
   })
 
   return (
-    <table className="table align-center">
-      <thead>
-        <tr>
-          <th>Sales Person</th>
-          <th>Customer</th>
-          <th>VIN</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody className="table-group-divider">
-        {filteredSales.map((sale) => {
-          return (
-            <tr key={sale.href}>
-              <td>{sale.sales_person.name}</td>
-              <td>{sale.customer.name}</td>
-              <td>{sale.automobile.vin}</td>
-              <td>${sale.price}</td>
-            </tr>
-          )
-        })}
-      </tbody>
-    </table>
+    <div className="container">
+      <table className="table align-center">
+        <thead>
+          <tr>
+            <th>Sales Person</th>
+            <th>Customer</th>
+            <th>VIN</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody className="table-group-divider">
+          {filteredSales.map((sale) => {
+            return (
+              <tr key={sale.href}>
+                <td>{sale.sales_person.name}</td>
+                <td>{sale.customer.name}</td>
+                <td>{sale.automobile.vin}</td>
+                <td>${sale.price}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    </div>
   )
 }

@@ -82,50 +82,52 @@ export default function CustomerForm() {
     }
 
     return (
-        <div className="row">
-            <div className="offset-3 col-6">
-                <div className="shadow p-4 mt-4 rounded-3">
-                    <div className="d-flex mb-3 align-items-center justify-content-center">
-                        <h1>Add a Customer</h1>
-                        <img src="https://cdn-icons-png.flaticon.com/512/2037/2037710.png" className="ms-2" style={{ width: "35px" }} />
+        <div className="container">
+            <div className="row">
+                <div className="offset-3 col-6">
+                    <div className="shadow p-4 mt-4 rounded-3">
+                        <div className="d-flex mb-3 align-items-center justify-content-center">
+                            <h1>Add a Customer</h1>
+                            <img src="https://cdn-icons-png.flaticon.com/512/2037/2037710.png" className="ms-2" style={{ width: "35px" }} />
+                        </div>
+                        <form onSubmit={handleSubmit} className="row g-3">
+                            <div className="col-12 form-floating">
+                                <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" maxLength="200" className="form-control" />
+                                <label className="mx-2" htmlFor="name">Name</label>
+                            </div>
+                            <div className="col-12 form-floating">
+                                <input value={phoneNumber} onChange={handlePhoneNumberChange} placeholder="Phone Number" required type="tel" name="phone_number" id="phone_number" maxLength="12" className="form-control" />
+                                <label className="mx-2" htmlFor="phone_number">Phone Number (XXX-XXX-XXXX)</label>
+                            </div>
+                            <div className="col-md-8 form-floating">
+                                <input value={street} onChange={handleStreetChange} placeholder="Street Address" required type="text" maxLength="200" name="street" id="street" className="form-control" />
+                                <label className="mx-2" htmlFor="street">Street Address</label>
+                            </div>
+                            <div className="col-md-4 form-floating">
+                                <input value={apartment} onChange={handleApartmentChange} placeholder="Apt/Suite" type="text" name="apartment" maxLength="100" id="apartment" className="form-control" />
+                                <label className="mx-1" htmlFor="apartment">Apt/Suite (Optional)</label>
+                            </div>
+                            <div className="col-md-12 form-floating">
+                                <input value={city} onChange={handleCityChange} placeholder="City" required type="text" name="city" id="city" maxLength="100" className="form-control" />
+                                <label className="mx-2" htmlFor="city">City</label>
+                            </div>
+                            <div className="col-md-6">
+                                <div className="form-floating">
+                                    <input value={state} onChange={handleStateChange} placeholder="State" required type="text" maxLength="2" name="state" id="state" className="form-control" />
+                                    <label htmlFor="state">State (Ex: CA, NY)</label>
+                                </div>
+                            </div>
+                            <div className="col-md-6">
+                                <div className="form-floating">
+                                    <input value={zipCode} onChange={handleZipCodeChange} placeholder="Zip Code" required type="number" name="zip_code" id="zip_code" min="0" max="2147483647" className="form-control" />
+                                    <label htmlFor="zip_code">Zip Code</label>
+                                </div>
+                            </div>
+                            <div className="d-grid col-md-6 mx-auto">
+                                <button className="btn btn-outline-primary">Add Customer</button>
+                            </div>
+                        </form>
                     </div>
-                    <form onSubmit={handleSubmit} className="row g-3">
-                        <div className="col-12 form-floating">
-                            <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" maxLength="200" className="form-control" />
-                            <label className="mx-2" htmlFor="name">Name</label>
-                        </div>
-                        <div className="col-12 form-floating">
-                            <input value={phoneNumber} onChange={handlePhoneNumberChange} placeholder="Phone Number" required type="tel" name="phone_number" id="phone_number" maxLength="12" className="form-control" />
-                            <label className="mx-2" htmlFor="phone_number">Phone Number (XXX-XXX-XXXX)</label>
-                        </div>
-                        <div className="col-md-8 form-floating">
-                            <input value={street} onChange={handleStreetChange} placeholder="Street Address" required type="text" maxLength="200" name="street" id="street" className="form-control" />
-                            <label className="mx-2" htmlFor="street">Street Address</label>
-                        </div>
-                        <div className="col-md-4 form-floating">
-                            <input value={apartment} onChange={handleApartmentChange} placeholder="Apt/Suite" type="text" name="apartment" maxLength="100" id="apartment" className="form-control" />
-                            <label className="mx-1" htmlFor="apartment">Apt/Suite (Optional)</label>
-                        </div>
-                        <div className="col-md-12 form-floating">
-                            <input value={city} onChange={handleCityChange} placeholder="City" required type="text" name="city" id="city" maxLength="100" className="form-control" />
-                            <label className="mx-2" htmlFor="city">City</label>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="form-floating">
-                                <input value={state} onChange={handleStateChange} placeholder="State" required type="text" maxLength="2" name="state" id="state" className="form-control" />
-                                <label htmlFor="state">State (Ex: CA, NY)</label>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="form-floating">
-                                <input value={zipCode} onChange={handleZipCodeChange} placeholder="Zip Code" required type="number" name="zip_code" id="zip_code" min="0" max="2147483647" className="form-control" />
-                                <label htmlFor="zip_code">Zip Code</label>
-                            </div>
-                        </div>
-                        <div className="d-grid col-md-6 mx-auto">
-                            <button className="btn btn-outline-primary">Add Customer</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
