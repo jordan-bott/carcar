@@ -211,18 +211,22 @@ function MainPage() {
       <div className="px-5 pb-5" >
         <div className="container">
           <div className="py-5">
-            <div className="d-flex justify-content-between align-items-center">
-              <div className="py-5 rounded-4 shadow" style={{ backgroundColor: "#E8E0D1" }}>
-                <div className="mx-5">
-                  <h2 className="display-9 fw-bold" style={{ color: "#867C79" }}>
-                    Contact Info
-                  </h2>
-                  <p className="lead">
-                    Kick back in our newly renovated service lounge and enjoy complimentary Wifi, gourmet coffee, tea, bottled water, HD TV and snacks. We also offer complimentary Lyft service for drop off and delivery within a 10 mile radius.
-                  </p>
+            <div className="row justify-content-between align-items-center">
+              <div className="col-md-5">
+                <div className="py-5 rounded-4 shadow" style={{ backgroundColor: "#E8E0D1" }}>
+                  <div className="mx-5">
+                    <h2 className="display-9 fw-bold" style={{ color: "#867C79" }}>
+                      Contact Info
+                    </h2>
+                    <p className="lead">
+                      Kick back in our newly renovated service lounge and enjoy complimentary Wifi, gourmet coffee, tea, bottled water, HD TV and snacks. We also offer complimentary Lyft service for drop off and delivery within a 10 mile radius.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <img className="img-fluid w-50" src="https://static.vecteezy.com/system/resources/previews/004/404/780/original/female-automotive-mechanic-repair-car-free-vector.jpg" />
+              <div className="col-md-7">
+                <img className="img-fluid" src="https://media.istockphoto.com/id/1148810592/vector/travel-concept-router-in-a-map-cartoon-vector-illustration.jpg?s=170667a&w=0&k=20&c=St24cNP38L4VYuynjCfxcGzJbDZcrWLLWk9zYaTCjRc=" />
+              </div>
             </div>
           </div>
         </div>
