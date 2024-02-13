@@ -31,7 +31,7 @@ Docker is used to run the application. To use the app, follow the steps for the 
 1. Open up your terminal to the desired directory on your local computer
 2. Clone the repository
 ```
-git clone https://gitlab.com/jordan.bott/project-beta.git
+git clone https://github.com/jordan-bott/carcar.git
 ```
 3. Change your working directory to the project's directory
 ```
